@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="Xem"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="&#x09;&#x09;JSeparator separator = new JSeparator();"/>
+			<item value="Xem"/>
+			<item value="fire"/>
+			<item value="cẤP QUYỀN"/>
+			<item value="combo"/>
+			<item value="DRAW"/>
+			<item value="getallrole"/>
+			<item value="thành công"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="569"/>
+		<item key="DIALOG_Y_ORIGIN" value="333"/>
+	</section>
+</section>

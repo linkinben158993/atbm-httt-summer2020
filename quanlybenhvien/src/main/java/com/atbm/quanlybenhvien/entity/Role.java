@@ -1,0 +1,19 @@
+package com.atbm.quanlybenhvien.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Role {
+	public static final List<String> ROLE_LIST = assignRole();
+	
+	public static List<String> assignRole(){
+		List<String> roleList = new ArrayList<String>();
+		
+		roleList.add("DBA");
+		roleList.add("ROLE_BACSI");
+		roleList.add("ROLE_NVBANTHUOC");
+		roleList.add("ROLE_NVKETOAN");
+		
+		return roleList;
+	}
+}
