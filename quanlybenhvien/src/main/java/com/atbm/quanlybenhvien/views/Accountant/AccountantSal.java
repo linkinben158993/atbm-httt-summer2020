@@ -143,13 +143,14 @@ public class AccountantSal extends JFrame {
 		contentPane.add(btnNewButton);
 	}
 
+	// Hàm vẽ bảng
 	@SuppressWarnings("serial")
 	private void draw_SalTbl() {
 		try {
 
 			Connection conn = new ConnectionControl().createConnection(this.user.getUserName(),
 					this.user.getPassword());
-			String sql = "SELECT * FROM QLBV.LUONG";
+			String sql = "SELECT LUONG.*, TO_NUMBER(QLBV.FNC_DECRYPT_LUONG(LUONG.MANV, LUONG.LUONGCOBAN)) AS LUONGCOBAN_DECRYPT FROM QLBV.LUONG LUONG";
 			PreparedStatement preparedStatement = conn.prepareStatement(sql);
 			ResultSet res = preparedStatement.executeQuery();
 			if (res.next() == false) {
@@ -165,7 +166,7 @@ public class AccountantSal extends JFrame {
 				};
 				int i = 1;
 				do {
-					String[] data = { String.valueOf(i++), res.getString("MANV"), res.getString("LUONGCOBAN"),
+					String[] data = { String.valueOf(i++), res.getString("MANV"), res.getString("LUONGCOBAN_DECRYPT"),
 							res.getString("TRANGTHAI"), res.getString("PHUCAP") };
 					tableNVien.addRow(data);
 				} while (res.next());

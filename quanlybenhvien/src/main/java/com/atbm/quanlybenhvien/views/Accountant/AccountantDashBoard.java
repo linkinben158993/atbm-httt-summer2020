@@ -99,7 +99,7 @@ public class AccountantDashBoard extends JFrame {
 		panelStats.setBackground(Color.LIGHT_GRAY);
 		panelStats.setBounds(10, 191, 100, 116);
 		panel.add(panelStats);
-		JLabel lblStats = new JLabel("<html>Thống Kê Lương</html>", SwingConstants.CENTER);
+		JLabel lblStats = new JLabel("<html><center>Thống Kê Lương</center></html>", SwingConstants.CENTER);
 		lblStats.setForeground(Color.BLACK);
 		lblStats.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		lblStats.setBounds(0, 86, 100, 30);
@@ -122,6 +122,34 @@ public class AccountantDashBoard extends JFrame {
 				Color.LIGHT_GRAY);
 		lblIconStats.setBounds(10, 0, 80, 75);
 		panelStats.add(lblIconStats);
+
+		JPanel panelStatsDay = new JPanel();
+		panelStatsDay.setLayout(null);
+		panelStatsDay.setBackground(Color.LIGHT_GRAY);
+		panelStatsDay.setBounds(147, 191, 100, 116);
+		panel.add(panelStatsDay);
+		JLabel lblStatsDay = new JLabel("<html><center>Thống Kê Ngày</center></html>", SwingConstants.CENTER);
+		lblStatsDay.setForeground(Color.BLACK);
+		lblStatsDay.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblStatsDay.setBounds(0, 86, 100, 30);
+		panelStatsDay.add(lblStatsDay);
+		JLabel lblIconStatsDay = new JLabel("");
+		lblIconStatsDay.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				genericStuff.call_frame(new AccountantDay(user));
+			}
+		});
+		genericStuff.hover(lblIconStatsDay, lblStatsDay, panelStatsDay, new Color(230, 230, 250), Color.DARK_GRAY,
+				Color.BLACK, Color.LIGHT_GRAY);
+		lblIconStatsDay.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIconStatsDay.setBounds(10, 0, 80, 75);
+		ImageIcon imageIcon_StatsDay = new ImageIcon(AccountantDashBoard.class.getResource("/images/Schedule.png"));
+		Image image_StatsDay = imageIcon_StatsDay.getImage();
+		Image newImage_StatsDay = image_StatsDay.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconStatsDay.setIcon(new ImageIcon(newImage_StatsDay));
+		panelStatsDay.add(lblIconStatsDay);
 
 		JPanel panelBack = new JPanel();
 		panelBack.setLayout(null);
@@ -158,5 +186,4 @@ public class AccountantDashBoard extends JFrame {
 		label_13.setBounds(206, 386, 330, 14);
 		panel.add(label_13);
 	}
-
 }

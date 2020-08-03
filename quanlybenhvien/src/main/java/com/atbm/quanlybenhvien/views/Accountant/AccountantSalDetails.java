@@ -5,11 +5,9 @@ import java.awt.Font;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
-import javax.swing.JFormattedTextField.AbstractFormatter;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,6 +20,7 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import com.atbm.quanlybenhvien.entity.User;
 import com.atbm.quanlybenhvien.util.ConnectionControl;
+import com.atbm.quanlybenhvien.util.DateFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -182,27 +181,7 @@ public class AccountantSalDetails extends JDialog {
 		contentPane.add(txtLuong);
 	}
 
-	public class DateFormatter extends AbstractFormatter {
-
-		private static final long serialVersionUID = 1L;
-		private static final String format_String = "dd-MM-yy";
-		private SimpleDateFormat dateFormat = new SimpleDateFormat(format_String);
-
-		@Override
-		public Object stringToValue(String text) throws ParseException {
-			return dateFormat.parseObject(text);
-		}
-
-		@Override
-		public String valueToString(Object value) throws ParseException {
-			if (value != null) {
-				Calendar cal = (Calendar) value;
-				return dateFormat.format(cal.getTime());
-			}
-			return "";
-		}
-	}
-
+	// Hàm tính lương và đưa kết quả lên txtBox
 	private String tinhLuong(String dateStart, String dateEnd, String maNV) {
 		String luong = "";
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
@@ -222,12 +201,12 @@ public class AccountantSalDetails extends JDialog {
 			Connection conn = new ConnectionControl().createConnection(this.user.getUserName(),
 					this.user.getPassword());
 			try {
-				String sql = "SELECT \r\n" + "ROUND(LUONGCOBAN/26 * \r\n" + "    (\r\n" + "    SELECT COUNT(*)\r\n"
-						+ "    FROM QLBV.CHAMCONG\r\n" + "    WHERE MANV = '" + maNV + "' \r\n" + "    AND \r\n"
-						+ "    THOIGIAN BETWEEN TO_DATE('" + dateStart + " 12:00 A.M.', 'DD-MM-YY HH:MI A.M.') \r\n"
-						+ "    AND \r\n" + "    TO_DATE('" + dateEnd + " 11:59 P.M.', 'DD-MM-YY HH:MI A.M.')\r\n"
-						+ "    ) + PHUCAP\r\n" + ") LUONG\r\n" + "FROM QLBV.LUONG\r\n" + "WHERE MANV = '" + maNV
-						+ "' AND TRANGTHAI = 1";
+				String sql = "SELECT \r\n" + "ROUND(TO_NUMBER(QLBV.FNC_DECRYPT_LUONG(MANV, LUONGCOBAN))/26 * \r\n"
+						+ "    (\r\n" + "    SELECT COUNT(*)\r\n" + "    FROM QLBV.CHAMCONG\r\n" + "    WHERE MANV = '"
+						+ maNV + "' \r\n" + "    AND \r\n" + "    THOIGIAN BETWEEN TO_DATE('" + dateStart
+						+ " 12:00 A.M.', 'DD-MM-YY HH:MI A.M.') \r\n" + "    AND \r\n" + "    TO_DATE('" + dateEnd
+						+ " 11:59 P.M.', 'DD-MM-YY HH:MI A.M.')\r\n" + "    ) + PHUCAP\r\n" + ") LUONG\r\n"
+						+ "FROM QLBV.LUONG\r\n" + "WHERE MANV = '" + maNV + "' AND TRANGTHAI = 1";
 				PreparedStatement preparedStatement = conn.prepareStatement(sql);
 				ResultSet res = preparedStatement.executeQuery();
 				if (res.next() == false) {

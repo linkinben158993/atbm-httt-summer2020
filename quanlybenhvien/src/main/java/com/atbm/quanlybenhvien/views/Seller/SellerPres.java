@@ -140,6 +140,7 @@ public class SellerPres extends JFrame {
 		contentPane.add(btnDetail);
 	}
 
+	// Hàm vẽ bảng
 	@SuppressWarnings("serial")
 	public void draw_Prescription() {
 		try {
