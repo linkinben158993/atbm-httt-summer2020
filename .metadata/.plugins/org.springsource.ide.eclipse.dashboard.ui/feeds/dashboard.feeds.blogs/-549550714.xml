@@ -5,7 +5,254 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2020-07-30T23:52:49Z</updated>
+  <updated>2020-08-03T16:09:24Z</updated>
+  <entry>
+    <title>Creating a function for consuming data and generating Spring Cloud Stream Sink applications</title>
+    <link rel="alternate" href="https://spring.io/blog/2020/08/03/creating-a-function-for-consuming-data-and-generating-spring-cloud-stream-sink-applications" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Soby Chacko</name>
+    </author>
+    <id>tag:spring.io,2020-08-03:4149</id>
+    <updated>2020-08-03T16:09:24Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;This is part 4 of the blog series in which we are introducing java functions for Spring Cloud Stream applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Other parts in the series.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2020/07/13/introducing-java-functions-for-spring-cloud-stream-applications-part-0"&gt;Part 1 - General Introduction&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2020/07/20/introducing-java-functions-for-spring-cloud-stream-applications-part-1"&gt;Part 2 - Function Composition&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2020/07/27/creating-a-supplier-function-and-generating-spring-cloud-stream-source"&gt;Part 3 - Supplier function and Source application&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In the &lt;a href="https://spring.io/blog/2020/07/27/creating-a-supplier-function-and-generating-spring-cloud-stream-source"&gt;last blog&lt;/a&gt; in this series, we saw how we can use a &lt;code&gt;java.util.function.Supplier&lt;/code&gt; to generate a Spring Cloud Stream source. In this new edition, we will see how a consuming function can be developed and tested using &lt;code&gt;java.util.function.Consumer&lt;/code&gt; and &lt;code&gt;java.util.function.Function&lt;/code&gt;. Later on, we will briefly explain the generation of a Spring Cloud Stream sink application from this consumer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="writing-a-consumer"&gt;&lt;a class="anchor" href="#writing-a-consumer"&gt;&lt;/a&gt;Writing a Consumer&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The idea behind writing a consumer is relatively simple. We consume data from some external source and hand it over to the business logic in the consumer. As in the case of a &lt;code&gt;Supplier&lt;/code&gt;, as we saw in the &lt;a href="https://spring.io/blog/2020/07/27/creating-a-supplier-function-and-generating-spring-cloud-stream-source"&gt;previous blog&lt;/a&gt;, the action occurs inside the business logic implementation. If we use libraries to help us do all the heavy lifting such as Spring Integration, then it becomes a matter of simply delegating the data received to the library through an appropriate API. However, if there are no such libraries available, we need to write all that code by ourselves. Let’s take a concrete example to demonstrate this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="writing-a-consumer-for-apache-pulsar"&gt;&lt;a class="anchor" href="#writing-a-consumer-for-apache-pulsar"&gt;&lt;/a&gt;Writing a Consumer for Apache Pulsar&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://pulsar.apache.org/"&gt;Apache Pulsar&lt;/a&gt; is a popular messaging middleware system. Let’s assume for a moment that we want to write a generic Java &lt;code&gt;Consumer&lt;/code&gt; that receives data from somewhere and then forwards it to Pulsar. Without getting too much into the details , here is a trivial &lt;code&gt;Consumer&lt;/code&gt; that accomplishes this. The basic implementation code is taken from &lt;a href="https://pulsar.apache.org/docs/en/client-libraries-java/#producer"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;@Bean
+public org.apache.pulsar.client.api.Producer producer() {
+  String pulsarBrokerRootUrl = "pulsar://localhost:6650";
+  PulsarClient client = PulsarClient.create(pulsarBrokerRootUrl);
+  String topic = "persistent://sample/standalone/ns1/my-topic";
+  return client.createProducer(topic);
+}
+
+@Bean
+public Consumer&amp;lt;byte[]&amp;gt; pulsarConsumer(Producer producer) {
+  return payload -&amp;gt; {
+     producer.send(payload);
+  };
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Once again, this is shown for illustrative purposes and may not be a complete implementation of sending data to Apache Pulsar. Nevertheless, this demonstrates the concepts that we want to convey. Looking at the consumer, we can see that the code is trivial; all we are doing inside the lambda expression is calling the &lt;code&gt;send&lt;/code&gt; method on the Apache Pulsar &lt;code&gt;Producer&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We can inject the above consumer into an application and invoke it’s &lt;code&gt;accept&lt;/code&gt; method programmatically, providing the data. As we have seen in the previous blog, the diagram below expresses an idea of running the function standalone or as part of a data orchestration pipeline on platforms like &lt;a href="https://spring.io/projects/spring-cloud-dataflow"&gt;Spring Cloud Data Flow&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;span class="image"&gt;&lt;img src="https://github.com/spring-cloud/stream-applications/blob/gh-pages/img/stream-applications-dataflow-faas.png?raw=true" alt="Stream Applications Layered Architecture for Functions"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Ok, that consumer was pretty straightforward, we might think to ourselves. What about if we would like to do something where things are a tad more involved? Below, we will do exactly that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="writing-a-consuming-function-for-rsocket"&gt;&lt;a class="anchor" href="#writing-a-consuming-function-for-rsocket"&gt;&lt;/a&gt;Writing a consuming function for RSocket&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://rsocket.io/"&gt;RSocket&lt;/a&gt; is a bi-directional binary protocol for which Spring Framework provides excellent &lt;a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket"&gt;support&lt;/a&gt;. RSocket provides a fire and forget model, allowing  us to send messages to a RSocket server without receiving a  response. We want to write a consumer for this model using TCP where the consumer receives external data and then pushes it to the RSocket server. The &lt;a href="https://github.com/rsocket/rsocket-java"&gt;Java implementation&lt;/a&gt; for RSocket is based on &lt;a href="https://projectreactor.io/"&gt;Project Reactor&lt;/a&gt;.Therefore when we write a consumer we need to use  reactive types and patterns (similar to the  reactive feed supplier in the &lt;a href="https://spring.io/blog/2020/07/27/creating-a-supplier-function-and-generating-spring-cloud-stream-source"&gt;previous blog&lt;/a&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;When using the fire and forget strategy, RSocket returns a &lt;code&gt;Mono&amp;lt;Void&amp;gt;&lt;/code&gt;, which our consumer needs to return from the function. However, in the case of &lt;code&gt;java.util.function.Consumer&lt;/code&gt;, we cannot return anything. Therefore we have to write a function with the signature &lt;code&gt;Function&amp;lt;String, Mono&amp;lt;Void&amp;gt;&amp;gt; rsocketConsumer()&lt;/code&gt;. Since the function returns a &lt;code&gt;Mono&amp;lt;Void&amp;gt;&lt;/code&gt;, this is semantically equivalent to writing a consumer. The user  of the function needs to get a reference to the  &lt;code&gt;Mono&lt;/code&gt; and subscribe to it. Similar patterns are used in the out of the box consumers, we already provide for &lt;a href="https://github.com/spring-cloud/stream-applications/blob/master/functions/consumer/mongodb-consumer/src/main/java/org/springframework/cloud/fn/consumer/mongo/MongoDbConsumerConfiguration.java"&gt;MongoDB&lt;/a&gt; and &lt;a href="https://github.com/spring-cloud/stream-applications/blob/master/functions/consumer/cassandra-consumer/src/main/java/org/springframework/cloud/fn/consumer/cassandra/CassandraConsumerConfiguration.java"&gt;Cassandra&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;When setting up the project, include the following maven dependency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;spring-boot-starter-rsocket&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This starter dependency from Spring Boot will transitively bring all the RSocket dependencies to our project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Before we write the function code, let’s write a &lt;code&gt;ConfigurationProperties&lt;/code&gt; class to define some core properties that the function needs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;@ConfigurationProperties("rsocket.consumer")
+public class RsocketConsumerProperties {
+
+  private String host = "localhost";
+
+  private int port = 7000;
+
+  private String route;
+…
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As we can see, using  the prefix &lt;code&gt;rsocket.consumer&lt;/code&gt; , we define three properties - &lt;code&gt;host&lt;/code&gt; and &lt;code&gt;port&lt;/code&gt; are for the RSocket server and &lt;code&gt;route&lt;/code&gt; is an endpoint on the server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now that we have the configuration properties  , let’s create a &lt;code&gt;Configuration&lt;/code&gt; class to configure  our function bean.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;@Configuration
+@EnableConfigurationProperties(RsocketConsumerProperties.class)
+public class RsocketConsumerConfiguration {
+
+  @Bean
+  public Function&amp;lt;String, Mono&amp;lt;Void&amp;gt;&amp;gt; rsocketConsumer(RSocketRequester.Builder builder,
+                                            RsocketConsumerProperties rsocketConsumerProperties) {
+     final Mono&amp;lt;RSocketRequester&amp;gt; rSocketRequester = builder.connectTcp(rsocketConsumerProperties.getHost(),
+           rsocketConsumerProperties.getPort());
+
+     return input -&amp;gt; rSocketRequester
+                 .flatMap(requester -&amp;gt; requester.route(rsocketConsumerProperties.getRoute())
+                       .data(input)
+                       .send());
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are injecting a builder that comes from Spring Boot auto-configuration into the function that helps us with creating an &lt;code&gt;RSocketRequester&lt;/code&gt;. Using this builder we create a &lt;code&gt;Mono&amp;lt;RSocketRequester&amp;gt;&lt;/code&gt; with a TCP connection. The &lt;code&gt;connectTcp&lt;/code&gt; API method takes the RSocket host and port information. Once we get a handle onto &lt;code&gt;RSocketRequester&lt;/code&gt; then we use that inside the lambda provided in the function.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We call &lt;code&gt;flatMap&lt;/code&gt; on &lt;code&gt;Mono&amp;lt;RSocketRequester&amp;gt;&lt;/code&gt; and for each incoming message, we specify the &lt;code&gt;route&lt;/code&gt; and the data that needs to be sent before calling the &lt;code&gt;send&lt;/code&gt; method that ultimately pushes the data to the RSocket server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;That’s all it takes to write a function that consumes data and then sends it to a RSocket server using the fire and forget interaction model. Keep in mind that this code looks very simple because of the various &lt;code&gt;RSocket&lt;/code&gt; support and abstractions that Spring Framework underneath provides us.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Let’s write a quick test to verify that the function works as expected.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As we did with the reactive supplier in the previous blog, add this following dependency to the project. This helps us with testing reactive components.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;io.projectreactor&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;reactor-test&amp;lt;/artifactId&amp;gt;
+  &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Following is the test with other necessary components.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;@SpringBootTest(properties = {"spring.rsocket.server.port=7000", "rsocket.consumer.route=test-route"})
+public class RsocketConsumerTests {
+
+  @Autowired
+  Function&amp;lt;Message&amp;lt;?&amp;gt;, Mono&amp;lt;Void&amp;gt;&amp;gt; rsocketConsumer;
+
+  @Autowired
+  TestController controller;
+
+  @Test
+  void testRsocketConsumer() {
+
+     rsocketConsumer.apply(new GenericMessage&amp;lt;&amp;gt;("Hello RSocket"))
+           .subscribe();
+
+     StepVerifier.create(this.controller.fireForgetPayloads)
+           .expectNext("Hello RSocket")
+           .thenCancel()
+           .verify();
+  }
+
+  @SpringBootApplication
+  @ComponentScan
+  static class RSocketConsumerTestApplication{}
+
+  @Controller
+  static class TestController {
+     final ReplayProcessor&amp;lt;String&amp;gt; fireForgetPayloads = ReplayProcessor.create();
+
+     @MessageMapping("test-route")
+     void someMethod(String payload) {
+        this.fireForgetPayloads.onNext(payload);
+     }
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;A quick explanation of the testing components.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;We provide the property &lt;code&gt;spring.rsocket.server.port&lt;/code&gt; on &lt;code&gt;SpringBootApplication&lt;/code&gt;. This allows Spring Boot to auto-configure a default RSocket server for testing. Hard coding the port to &lt;code&gt;7000&lt;/code&gt; here since that is the default port used by Spring Boot when auto configuring the components. This is the same default we used in properties above.
+We also specify the &lt;code&gt;route&lt;/code&gt; that we want to use in our test.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There is a &lt;code&gt;Controller&lt;/code&gt; provided with a method annotated with &lt;code&gt;MessageMapping&lt;/code&gt; where it intercepts messages arriving at the route that we specified in the test. Each incoming record on the Server at the route is passed into a &lt;code&gt;Flux&lt;/code&gt; where it can be replayed later in the test during assertion.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the test, we are calling the &lt;code&gt;apply&lt;/code&gt; method on the injected &lt;code&gt;RSocket&lt;/code&gt; consumer that we wrote earlier and providing it with a test message.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, we use a &lt;code&gt;StepVerifier&lt;/code&gt; to verify that the message was sent successfully to the &lt;code&gt;RSocket&lt;/code&gt; server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="generating-spring-cloud-stream-sink-application-from-the-rsocket-consumer"&gt;&lt;a class="anchor" href="#generating-spring-cloud-stream-sink-application-from-the-rsocket-consumer"&gt;&lt;/a&gt;Generating Spring Cloud Stream Sink application from the RSocket Consumer&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In the &lt;a href="https://spring.io/blog/2020/07/27/creating-a-supplier-function-and-generating-spring-cloud-stream-source"&gt;last blog&lt;/a&gt;, we covered how to generate a Spring Cloud Stream source application from a Supplier function in much detail. You can follow the same patterns that we used there for generating a sink application from the RSocket function that we wrote above. We are not rehashing all the  details involved   here. Use the many different sink applications provided &lt;a href="https://github.com/spring-cloud/stream-applications/tree/master/applications/sink"&gt;here&lt;/a&gt; as a template.  When we test the function with the test binder in Spring Cloud Stream, send the message to the &lt;code&gt;InputDestination&lt;/code&gt;. Spring Cloud Stream will send it downstream to the RSocket server. Then we can use the same verification strategies we used in the unit test above. See &lt;a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/current/reference/html/spring-cloud-stream.html#_testing"&gt;this&lt;/a&gt; for more information on testing Spring Cloud Stream components using the test binder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="conclusion"&gt;&lt;a class="anchor" href="#conclusion"&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this blog post, we saw how we can write a plain consumer that consumes data and acts upon it, using Apache Pulsar as an example. We then explored how to develop a reactive consumer in the form of &lt;code&gt;Function&amp;lt;String, Mono&amp;lt;Void&amp;gt;&amp;gt;&lt;/code&gt; with RSocket fire and forget strategy to guide us. We also demonstrated how this reactive consumer can be unit tested. Please follow the procedures laid out in this article for writing your own data consumers and if you do so, consider &lt;a href="https://github.com/spring-cloud/stream-applications/blob/master/docs/Contributing.adoc"&gt;contributing&lt;/a&gt; a pull request.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="stay-tuned"&gt;&lt;a class="anchor" href="#stay-tuned"&gt;&lt;/a&gt;Stay tuned…?&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Look for more deep dives and focused topics in the coming weeks. With the next blog in this series, we are starting a set of case studies in which we explore the already existing functions and applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: Josh Lock on supply chain security, Docker trust, TUF, and more</title>
     <link rel="alternate" href="https://spring.io/blog/2020/07/30/a-bootiful-podcast-josh-lock-on-supply-chain-security-docker-trust-tuf-and-more" />
@@ -1527,20 +1774,6 @@ Function&amp;lt;Integer, Message&amp;lt;String&amp;gt;&amp;gt; convertIntMessage
   &lt;li&gt;&lt;a href="https://twitter.com/springcloud/status/1283094108681244676"&gt;We&amp;rsquo;d love the community&amp;rsquo;s help as we redesign Spring Cloud Stream around functions.&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://twitter.com/VMwareTanzu/status/1282717534710636544"&gt;Which SpringOne track are you most excited about?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>The Spring team wants to hear from you!</title>
-    <link rel="alternate" href="https://spring.io/blog/2020/07/14/the-spring-team-wants-to-hear-from-you" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Ben Wilcock</name>
-    </author>
-    <id>tag:spring.io,2020-07-14:4129</id>
-    <updated>2020-07-14T14:42:31Z</updated>
-    <content type="html">&lt;p&gt;The “State of Spring 2020” report will be published soon, based on the views and experiences of Spring Boot development experts across the globe. In exchange for 15 minutes of your time to complete the survey, you’ll be among the first to receive the survey report and the insights included in it. Please feel free to share this email with your Spring development colleagues. The survey will close at the end of July.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://dimensionalresearch.co1.qualtrics.com/jfe/form/SV_b18rQR0rXsFFQcB"&gt;Take the survey now&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Thanks for sharing your thoughts and experiences with us!&lt;br/&gt;The Spring Team&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
