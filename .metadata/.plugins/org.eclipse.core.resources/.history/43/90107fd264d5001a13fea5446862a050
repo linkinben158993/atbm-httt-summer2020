@@ -1,7 +1,0 @@
-package com.atbm.quanlybenhvien.util;
-
-import javax.swing.JFormattedTextField.AbstractFormatter;
-
-public class DateFormatter extends AbstractFormatter {
-
-}

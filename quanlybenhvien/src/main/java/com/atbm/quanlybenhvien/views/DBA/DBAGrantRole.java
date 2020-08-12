@@ -5,11 +5,13 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.atbm.quanlybenhvien.entity.User;
 import com.atbm.quanlybenhvien.util.ConnectionControl;
+import com.atbm.quanlybenhvien.views.GenericStuff;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,7 +30,20 @@ import java.awt.event.ActionEvent;
 public class DBAGrantRole extends JDialog {
 
 	private static final long serialVersionUID = 1L;
+
+	private JFrame prevFrame;
+
+	public JFrame getPrevFrame() {
+		return prevFrame;
+	}
+
+	public void setPrevFrame(JFrame prevFrame) {
+		this.prevFrame = prevFrame;
+	}
+
 	private final JPanel contentPanel = new JPanel();
+
+	private GenericStuff genericStuff = new GenericStuff();
 
 	private User user;
 
@@ -42,7 +57,7 @@ public class DBAGrantRole extends JDialog {
 
 	public static void main(String[] args) {
 		try {
-			DBAGrantRole dialog = new DBAGrantRole(new User());
+			DBAGrantRole dialog = new DBAGrantRole(new User(), new DBAWorkSpace(new User()));
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -50,8 +65,10 @@ public class DBAGrantRole extends JDialog {
 		}
 	}
 
-	public DBAGrantRole(final User user) {
+	public DBAGrantRole(final User user, final DBAWorkSpace preFrame) {
 		this.user = user;
+
+		this.prevFrame = preFrame;
 
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -117,6 +134,16 @@ public class DBAGrantRole extends JDialog {
 								JOptionPane.showMessageDialog(null,
 										"Thêm quyền " + granted_role + " cho người dùng " + grantee + " thành công!");
 
+								preFrame.getUserRoleTable().fireTableDataChanged();
+								preFrame.drawuserRole_Table();
+								preFrame.getTblUserRole().setModel(preFrame.getUserRoleTable());
+
+								genericStuff.call_revapaint(preFrame);
+
+								genericStuff.resizeTable(preFrame.getTblUserRole());
+
+								dispose();
+
 							} catch (Exception e) {
 								e.printStackTrace();
 								JOptionPane.showMessageDialog(null,
@@ -168,7 +195,7 @@ public class DBAGrantRole extends JDialog {
 		try {
 			String sql = "SELECT * FROM ALL_USERS\r\n" + "WHERE\r\n"
 					+ "USERNAME LIKE '%BS%' AND USERNAME NOT LIKE '%DBS%'\r\n" + "OR\r\n" + "USERNAME LIKE '%NV%'\r\n"
-					+ "ORDER BY USERNAME";
+					+ "OR\r\n" + "USERNAME LIKE '%USER%'\r\n" + "ORDER BY USERNAME";
 			PreparedStatement preparedStatement_User = conn.prepareStatement(sql);
 			ResultSet res = preparedStatement_User.executeQuery();
 			if (res.next() == false) {

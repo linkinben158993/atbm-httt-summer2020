@@ -157,7 +157,7 @@ public class SellerDashBoard extends JFrame {
 		JLabel label_13 = new JLabel("2020 Nhóm 23 - Demo Quản Lý Bệnh Viện");
 		label_13.setHorizontalAlignment(SwingConstants.CENTER);
 		label_13.setFont(new Font("Tahoma", Font.BOLD, 12));
-		label_13.setBounds(206, 386, 330, 14);
+		label_13.setBounds(206, 340, 330, 14);
 		panel.add(label_13);
 	}
 }

@@ -323,7 +323,7 @@ public class DBAWorkSpace extends JFrame {
 		btnGrantRole.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				DBAGrantRole dbaGrantRole = new DBAGrantRole(user);
+				DBAGrantRole dbaGrantRole = new DBAGrantRole(user, currFrame);
 				genericStuff.call_dialog(dbaGrantRole);
 			}
 		});

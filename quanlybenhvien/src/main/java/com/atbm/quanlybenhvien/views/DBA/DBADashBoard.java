@@ -243,5 +243,11 @@ public class DBADashBoard extends JFrame {
 		genericStuff.hover(lblIconBack, lblBack, panelBack, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,
 				Color.LIGHT_GRAY);
 		panelBack.add(lblBack);
+
+		JLabel label_13 = new JLabel("2020 Nhóm 23 - Demo Quản Lý Bệnh Viện");
+		label_13.setHorizontalAlignment(SwingConstants.CENTER);
+		label_13.setFont(new Font("Tahoma", Font.BOLD, 12));
+		label_13.setBounds(206, 330, 330, 14);
+		panel.add(label_13);
 	}
 }

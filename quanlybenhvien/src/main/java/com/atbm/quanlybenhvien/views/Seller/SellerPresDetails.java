@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.awt.event.ActionEvent;
+import javax.swing.ScrollPaneConstants;
 
 public class SellerPresDetails extends JDialog {
 
@@ -77,6 +78,7 @@ public class SellerPresDetails extends JDialog {
 		getContentPane().setLayout(null);
 
 		JScrollPane scrollPane_PresDetail = new JScrollPane();
+		scrollPane_PresDetail.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane_PresDetail.setBounds(10, 11, 614, 299);
 		getContentPane().add(scrollPane_PresDetail);
 		draw_PresDetail(maKB);
@@ -90,7 +92,53 @@ public class SellerPresDetails extends JDialog {
 				if (tbl_PresDetail.getSelectedRow() == -1) {
 					JOptionPane.showMessageDialog(null, "Vui lòng chọn những hàng cần cập nhật chi phí!");
 				} else {
-					// Cập nhật ở đây
+					// Không được cập nhật những dòng đã có sẵn chi phí vì đã được tính toán trước
+					// khi có sự thay đổi giá thuốc
+					int[] selected_rows = tbl_PresDetail.getSelectedRows();
+					boolean pass = pass_TinhChiPhi(selected_rows);
+					if (pass) {
+
+						Connection conn = new ConnectionControl().createConnection(user.getUserName(),
+								user.getPassword());
+						PreparedStatement stmt = null;
+						try {
+							stmt = conn
+									.prepareStatement("UPDATE QLBV.TOATHUOC SET CHIPHI = ? WHERE MAKB = ? AND MAT = ?");
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+						for (int item : selected_rows) {
+							try {
+								stmt.setBigDecimal(1, new BigDecimal(tbl_PresDetail.getValueAt(item, 7).toString()));
+								stmt.setString(2, tbl_PresDetail.getValueAt(item, 1).toString());
+								stmt.setString(3, tbl_PresDetail.getValueAt(item, 2).toString());
+								stmt.addBatch();
+							} catch (NumberFormatException | SQLException e1) {
+								e1.printStackTrace();
+							}
+						}
+
+						try {
+							stmt.executeBatch();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+							JOptionPane.showMessageDialog(null, "Cập nhật thông tin hóa đơn thất bại!");
+						}
+
+						try {
+							conn.close();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+						JOptionPane.showMessageDialog(null, "Cập nhật thông tin hóa đơn thành công!");
+						getTableDetailPres().fireTableDataChanged();
+						draw_PresDetail(maKB);
+						getTbl_PresDetail().setModel(tableDetailPres);
+						genericStuff.resizeTable(getTbl_PresDetail());
+						genericStuff.call_revapaint(contentPanel);
+					}
 				}
 			}
 		});
@@ -110,20 +158,25 @@ public class SellerPresDetails extends JDialog {
 				}
 
 				for (int i = 0; i < tbl_PresDetail.getRowCount(); i++) {
-					try {
-						stmt.setBigDecimal(1, new BigDecimal(tbl_PresDetail.getValueAt(i, 7).toString()));
-						stmt.setString(2, tbl_PresDetail.getValueAt(i, 1).toString());
-						stmt.setString(3, tbl_PresDetail.getValueAt(i, 2).toString());
-						System.out.println(stmt);
-						stmt.addBatch();
-					} catch (NumberFormatException | SQLException e1) {
-						e1.printStackTrace();
+					if (tbl_PresDetail.getValueAt(i, 8).toString().equals("Chưa Tính")) {
+						try {
+							stmt.setBigDecimal(1, new BigDecimal(tbl_PresDetail.getValueAt(i, 7).toString()));
+							stmt.setString(2, tbl_PresDetail.getValueAt(i, 1).toString());
+							stmt.setString(3, tbl_PresDetail.getValueAt(i, 2).toString());
+							stmt.addBatch();
+						} catch (NumberFormatException | SQLException e1) {
+							e1.printStackTrace();
+						}
+					} else {
+						continue;
 					}
 				}
+
 				try {
 					stmt.executeBatch();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Cập nhật thông tin hóa đơn thất bại!");
 				}
 
 				try {
@@ -132,6 +185,7 @@ public class SellerPresDetails extends JDialog {
 					e1.printStackTrace();
 				}
 
+				JOptionPane.showMessageDialog(null, "Cập nhật thông tin hóa đơn thành công!");
 				getTableDetailPres().fireTableDataChanged();
 				draw_PresDetail(maKB);
 				getTbl_PresDetail().setModel(tableDetailPres);
@@ -144,6 +198,16 @@ public class SellerPresDetails extends JDialog {
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+	}
+
+	private boolean pass_TinhChiPhi(int[] selected_rows) {
+		for (int i : selected_rows) {
+			if (!tbl_PresDetail.getValueAt(i, 8).toString().equals("Chưa Tính")) {
+				JOptionPane.showMessageDialog(null, "Chỉ được tính toán trên những Toa Thuốc chưa được tính chi phí");
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@SuppressWarnings("serial")
@@ -171,17 +235,13 @@ public class SellerPresDetails extends JDialog {
 				};
 				int i = 1;
 				do {
-					if (res.getString("CHIPHI") == null) {
-						String[] data = { String.valueOf(i++), res.getString("MAKB"), res.getString("MAT"),
-								res.getString("TEN"), res.getString("MOTA"), res.getString("DONGIA"),
-								res.getString("SOLUONG"), res.getString("TONGGIA"), "Chưa Tính" };
-						tableDetailPres.addRow(data);
-					} else {
-						String[] data = { String.valueOf(i++), res.getString("MAKB"), res.getString("MAT"),
-								res.getString("TEN"), res.getString("MOTA"), res.getString("DONGIA"),
-								res.getString("SOLUONG"), res.getString("TONGGIA"), res.getString("CHIPHI") };
-						tableDetailPres.addRow(data);
-					}
+
+					String[] data = { String.valueOf(i++), res.getString("MAKB"), res.getString("MAT"),
+							res.getString("TEN"), res.getString("MOTA"), res.getString("DONGIA"),
+							res.getString("SOLUONG"), res.getString("TONGGIA"),
+							res.getString("CHIPHI") != null ? res.getString("CHIPHI") : "Chưa Tính" };
+					tableDetailPres.addRow(data);
+
 				} while (res.next());
 
 				conn.close();
