@@ -21,6 +21,8 @@ import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -28,6 +30,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DoctorAddServices extends JDialog {
 
@@ -78,7 +82,8 @@ public class DoctorAddServices extends JDialog {
 
 	public static void main(String[] args) {
 		try {
-			DoctorAddServices dialog = new DoctorAddServices(new User(), new String());
+			DoctorAddServices dialog = new DoctorAddServices(new User(), new String(),
+					new DoctorPatDetails(new User(), new String(), new String()));
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -86,7 +91,7 @@ public class DoctorAddServices extends JDialog {
 		}
 	}
 
-	public DoctorAddServices(final User user, String maKB) {
+	public DoctorAddServices(final User user, final String maKB, final DoctorPatDetails preFrame) {
 		this.user = user;
 
 		setBounds(100, 100, 550, 200);
@@ -125,14 +130,13 @@ public class DoctorAddServices extends JDialog {
 		}
 		{
 			txtMoTa = new JTextField();
-			txtMoTa.setEditable(false);
 			txtMoTa.setColumns(10);
 			txtMoTa.setBounds(120, 70, 86, 20);
 			contentPanel.add(txtMoTa);
 		}
 
 		draw_ComboBoxTableDichVu();
-		JComboBox<String> comboBox_DichVu = new JComboBox<String>(comboModelDichVu);
+		final JComboBox<String> comboBox_DichVu = new JComboBox<String>(comboModelDichVu);
 		comboBox_DichVu.setSelectedItem(null);
 		comboBox_DichVu.setBounds(120, 39, 86, 20);
 		contentPanel.add(comboBox_DichVu);
@@ -160,6 +164,45 @@ public class DoctorAddServices extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("Thêm");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+
+						if (comboBox_DichVu.getSelectedItem() == null) {
+							JOptionPane.showMessageDialog(null, "Vui lòng chọn dịch vụ muốn thêm!");
+						} else {
+							String maDV = comboBox_DichVu.getSelectedItem().toString();
+							String moTa = txtMoTa.getText();
+
+							Connection conn = new ConnectionControl().createConnection(user.getUserName(),
+									user.getPassword());
+							try {
+
+								String sql = "INSERT INTO QLBV.view_dieuphoidichvu VALUES ('" + maKB + "', '" + maDV
+										+ "', '" + moTa + "')";
+								Statement stmt = conn.createStatement();
+								stmt.executeUpdate(sql);
+								conn.close();
+
+							} catch (Exception e) {
+								e.printStackTrace();
+								JOptionPane.showMessageDialog(null, "Thêm mới dịch vụ thất bại!");
+								try {
+									conn.close();
+								} catch (SQLException e1) {
+									e1.printStackTrace();
+								}
+							}
+							JOptionPane.showMessageDialog(null, "Thêm mới dịch vụ thành công!");
+
+							dispose();
+							preFrame.getTableDichVu().fireTableDataChanged();
+							preFrame.drawTable_DichVu(maKB);
+							preFrame.getTbl_DichVu().setModel(preFrame.getTableDichVu());
+							genericStuff.resizeTable(preFrame.getTbl_DichVu());
+							genericStuff.call_revapaint(preFrame);
+						}
+					}
+				});
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
