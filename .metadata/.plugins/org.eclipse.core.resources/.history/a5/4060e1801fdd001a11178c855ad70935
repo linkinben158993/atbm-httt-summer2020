@@ -1,0 +1,80 @@
+package com.atbm.quanlybenhvien.views.Doctor;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+
+public class DoctorPatDetails extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	private DefaultTableModel tableDichVu;
+
+	public DefaultTableModel getTableDichVu() {
+		return tableDichVu;
+	}
+
+	public void setTableDichVu(DefaultTableModel tableDichVu) {
+		this.tableDichVu = tableDichVu;
+	}
+
+	private DefaultTableModel tableToaThuoc;
+
+	public DefaultTableModel getTableToaThuoc() {
+		return tableToaThuoc;
+	}
+
+	public void setTableToaThuoc(DefaultTableModel tableToaThuoc) {
+		this.tableToaThuoc = tableToaThuoc;
+	}
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DoctorPatDetails frame = new DoctorPatDetails(new User());
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public DoctorPatDetails(final User user) {
+		this.user = user;
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 420);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+
+	}
+
+	private void drawTable_DichVu() {
+
+	}
+
+}

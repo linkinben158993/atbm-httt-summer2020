@@ -17,6 +17,7 @@ import com.atbm.quanlybenhvien.util.ConnectionControl;
 import com.atbm.quanlybenhvien.views.GenericStuff;
 
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
@@ -102,6 +103,7 @@ public class DoctorPatients extends JFrame {
 
 		draw_TblPatients();
 		tblPatients = new JTable(tablePatients);
+		tblPatients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		genericStuff.resizeTable(tblPatients);
 		scrollPane_Patients.setViewportView(tblPatients);
 
@@ -111,7 +113,11 @@ public class DoctorPatients extends JFrame {
 				if (tblPatients.getSelectedRow() == -1) {
 					JOptionPane.showMessageDialog(null, "Vui lòng chọn ca bệnh để xem chi tiết!");
 				} else {
-					
+					String maKB = tblPatients.getValueAt(tblPatients.getSelectedRow(), 1).toString();
+					String benhNhan = tblPatients.getValueAt(tblPatients.getSelectedRow(), 2).toString();
+					dispose();
+					DoctorPatDetails doctorPatDetails = new DoctorPatDetails(user, maKB, benhNhan);
+					genericStuff.call_frame(doctorPatDetails);
 				}
 			}
 		});

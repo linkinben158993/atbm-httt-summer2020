@@ -1,0 +1,101 @@
+package com.atbm.quanlybenhvien.views.Doctor;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+
+public class DoctorAddServices extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+	private User user;
+	private JTextField txtMaKB;
+	private JTextField textField_1;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			DoctorAddServices dialog = new DoctorAddServices(new User(), new String());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public DoctorAddServices(final User user, String maKB) {
+		this.user = user;
+
+		setBounds(100, 100, 320, 200);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblMaKB = new JLabel("Mã Khám Bệnh:");
+			lblMaKB.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMaKB.setFont(new Font("Times New Roman", Font.BOLD, 12));
+			lblMaKB.setBounds(10, 11, 100, 14);
+			contentPanel.add(lblMaKB);
+		}
+
+		txtMaKB = new JTextField();
+		txtMaKB.setBounds(120, 8, 86, 20);
+		contentPanel.add(txtMaKB);
+		txtMaKB.setColumns(10);
+		txtMaKB.setEditable(false);
+		{
+			JLabel lblMaDV = new JLabel("Mã Dịch Vụ:");
+			lblMaDV.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMaDV.setFont(new Font("Times New Roman", Font.BOLD, 12));
+			lblMaDV.setBounds(10, 39, 100, 14);
+			contentPanel.add(lblMaDV);
+		}
+		{
+			JLabel lblMT = new JLabel("Mô Tả:");
+			lblMT.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMT.setFont(new Font("Times New Roman", Font.BOLD, 12));
+			lblMT.setBounds(10, 70, 100, 14);
+			contentPanel.add(lblMT);
+		}
+		{
+			textField_1 = new JTextField();
+			textField_1.setEditable(false);
+			textField_1.setColumns(10);
+			textField_1.setBounds(120, 67, 86, 20);
+			contentPanel.add(textField_1);
+		}
+
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Thêm");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+}
