@@ -141,9 +141,8 @@ public class BusaryDashBoard extends JFrame {
 		lblIconServiceStats.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				dispose();
 				BusaryServiceStats busaryServiceStats = new BusaryServiceStats(user);
-				genericStuff.call_frame(busaryServiceStats);
+				genericStuff.call_dialog(busaryServiceStats);
 			}
 		});
 		genericStuff.hover(lblIconServiceStats, lblServiceStats, panelServiceStats, new Color(230, 230, 250),

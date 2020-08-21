@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -21,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 import com.atbm.quanlybenhvien.entity.User;
 import com.atbm.quanlybenhvien.util.ConnectionControl;
 import com.atbm.quanlybenhvien.views.GenericStuff;
-import com.atbm.quanlybenhvien.views.Login;
 import com.atbm.quanlybenhvien.views.Accountant.AccountantDashBoard;
 
 import javax.swing.JTable;
@@ -102,7 +102,6 @@ public class BusaryPatientsStats extends JFrame {
 		draw_TablePatients();
 		tbl_Patients = new JTable(tablePatients);
 		tbl_Patients.setAutoCreateRowSorter(true);
-		tbl_Patients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		genericStuff.resizeTable(tbl_Patients);
 		scrollPane_Patients.setViewportView(tbl_Patients);
 
@@ -136,7 +135,53 @@ public class BusaryPatientsStats extends JFrame {
 				if (tbl_Patients.getSelectedRow() == -1) {
 					JOptionPane.showMessageDialog(null, "Vui lòng chọn bảng khám bệnh để cập nhật thông tin!");
 				} else {
-					System.out.println(tbl_Patients.getValueAt(tbl_Patients.getSelectedRow(), 1).toString());
+					boolean pass = pass_TinhChiPhi(tbl_Patients.getSelectedRows());
+					if (pass) {
+						System.out.println(tbl_Patients.getValueAt(tbl_Patients.getSelectedRow(), 1).toString());
+						Connection conn = new ConnectionControl().createConnection(user.getUserName(),
+								user.getPassword());
+						PreparedStatement stmt = null;
+						try {
+							stmt = conn.prepareStatement("UPDATE QLBV.KHAMBENH SET CHIPHI =\r\n" + "(\r\n"
+									+ "SELECT\r\n" + "(\r\n" + "    SELECT SUM(DVU.GIA) CHIPHI FROM\r\n"
+									+ "    QLBV.DIEUPHOIDICHVU DPDV\r\n"
+									+ "    JOIN QLBV.DICHVU DVU ON DPDV.MADV = DVU.MADV\r\n"
+									+ "    WHERE DPDV.MAKB = KB.MAKB\r\n" + ") CHIPHI\r\n" + "FROM QLBV.KHAMBENH KB\r\n"
+									+ "WHERE KB.MAKB = ?\r\n" + ")\r\n" + "WHERE MAKB = ?");
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+						for (int item : tbl_Patients.getSelectedRows()) {
+							try {
+								stmt.setString(1, tbl_Patients.getValueAt(item, 1).toString());
+								stmt.setString(2, tbl_Patients.getValueAt(item, 1).toString());
+								stmt.addBatch();
+							} catch (SQLException e1) {
+								e1.printStackTrace();
+							}
+						}
+						try {
+							stmt.executeBatch();
+						} catch (Exception e2) {
+							e2.printStackTrace();
+							JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thất bại!");
+						}
+						try {
+							conn.close();
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+
+						JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thành công!");
+						getTablePatients().fireTableDataChanged();
+						draw_TablePatients();
+						tbl_Patients.setModel(getTablePatients());
+						genericStuff.resizeTable(tbl_Patients);
+						genericStuff.call_revapaint(tbl_Patients);
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Vui lòng chỉ chọn những khám bệnh chưa được tính!");
+					}
 				}
 			}
 		});
@@ -147,9 +192,49 @@ public class BusaryPatientsStats extends JFrame {
 		JButton btnUpdateAll = new JButton("<html><center>Cập Nhật<br>Tất Cả</center></html>");
 		btnUpdateAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < tbl_Patients.getRowCount(); i++) {
-					System.out.println(tbl_Patients.getValueAt(i, 1).toString());
+
+				Connection conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+				PreparedStatement stmt = null;
+				try {
+					stmt = conn.prepareStatement("UPDATE QLBV.KHAMBENH SET CHIPHI =\r\n" + "(\r\n" + "SELECT\r\n"
+							+ "(\r\n" + "    SELECT SUM(DVU.GIA) CHIPHI FROM\r\n" + "    QLBV.DIEUPHOIDICHVU DPDV\r\n"
+							+ "    JOIN QLBV.DICHVU DVU ON DPDV.MADV = DVU.MADV\r\n"
+							+ "    WHERE DPDV.MAKB = KB.MAKB\r\n" + ") CHIPHI\r\n" + "FROM QLBV.KHAMBENH KB\r\n"
+							+ "WHERE KB.MAKB = ?\r\n" + ")\r\n" + "WHERE MAKB = ?");
+				} catch (SQLException e1) {
+					e1.printStackTrace();
 				}
+				for (int item = 0; item < tbl_Patients.getRowCount(); item++) {
+					if (tbl_Patients.getValueAt(item, 6).toString().equals("Chưa Tính")) {
+						try {
+							stmt.setString(1, tbl_Patients.getValueAt(item, 1).toString());
+							stmt.setString(2, tbl_Patients.getValueAt(item, 1).toString());
+							stmt.addBatch();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+					} else {
+						continue;
+					}
+				}
+				try {
+					stmt.executeBatch();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thất bại!");
+				}
+				try {
+					conn.close();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+
+				JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thành công!");
+				getTablePatients().fireTableDataChanged();
+				draw_TablePatients();
+				tbl_Patients.setModel(getTablePatients());
+				genericStuff.resizeTable(tbl_Patients);
+				genericStuff.call_revapaint(tbl_Patients);
 			}
 		});
 		btnUpdateAll.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -174,11 +259,12 @@ public class BusaryPatientsStats extends JFrame {
 		lblIconBack.setIcon(new ImageIcon(newImage_Back));
 		lblIconBack.setBounds(10, 11, 80, 80);
 		lblIconBack.addMouseListener(new MouseAdapter() {
+
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				dispose();
-				Login login = new Login();
-				genericStuff.call_frame(login);
+				BusaryDashBoard busaryDashBoard = new BusaryDashBoard(user);
+				genericStuff.call_frame(busaryDashBoard);
 			}
 		});
 		genericStuff.hover(lblIconBack, lblBack, panelBack, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,
@@ -190,6 +276,16 @@ public class BusaryPatientsStats extends JFrame {
 		label_13.setFont(new Font("Tahoma", Font.BOLD, 12));
 		label_13.setBounds(145, 361, 330, 14);
 		contentPane.add(label_13);
+	}
+
+	private boolean pass_TinhChiPhi(int[] selected_rows) {
+		for (int i : selected_rows) {
+			if (!tbl_Patients.getValueAt(i, 6).toString().equals("Chưa Tính")) {
+				JOptionPane.showMessageDialog(null, "Chỉ được tính toán trên những Toa Thuốc chưa được tính chi phí");
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@SuppressWarnings("serial")

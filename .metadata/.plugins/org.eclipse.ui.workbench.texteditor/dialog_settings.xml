@@ -6,8 +6,8 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="tẤT"/>
 			<item value="back"/>
+			<item value="tẤT"/>
 			<item value="Pats"/>
 			<item value="user"/>
 			<item value="INSERT"/>

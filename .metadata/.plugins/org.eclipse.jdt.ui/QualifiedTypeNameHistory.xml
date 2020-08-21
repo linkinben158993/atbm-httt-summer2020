@@ -24,7 +24,6 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Accountant.AccountantDashBoard"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Accountant.AccountantSalDetails"/>
-<fullyQualifiedTypeName name="javax.swing.JDialog"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Accountant.AccountantSal"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -46,18 +45,19 @@
 <fullyQualifiedTypeName name="javax.swing.DefaultComboBoxModel"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorAddPatMeds"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorEditPatMeds"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.ConnectionControl"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorPatDetails"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryDashBoard"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryPatientsStats"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.entity.User"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.GenericStuff"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryServiceStats"/>
-<fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicTreeUI.SelectionModelPropertyChangeHandler"/>
 <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.ConnectionControl"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryDashBoard"/>
+<fullyQualifiedTypeName name="javax.swing.JDialog"/>
+<fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 </qualifiedTypeNameHistroy>

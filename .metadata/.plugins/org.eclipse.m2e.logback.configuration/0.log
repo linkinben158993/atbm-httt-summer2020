@@ -16600,3 +16600,436 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact ojdbc:ojdbc:j
 2020-08-21 12:59:24,994 [Worker-84: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
 2020-08-21 12:59:24,999 [Worker-84: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-08-21 12:59:25,000 [Worker-84: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:14:38,992 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-08-21 16:19:17,556 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:19:17,563 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 26 resources
+2020-08-21 16:19:17,605 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:19:17,605 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:19:41,549 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:19:41,557 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:19:41,565 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:19:41,565 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:19:55,091 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:19:55,097 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:19:55,101 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:19:55,101 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:20:00,045 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:00,049 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:20:00,056 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:00,056 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:20:03,506 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:03,508 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:20:03,515 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:03,515 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:20:43,458 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:43,461 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:20:43,468 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:43,468 [Worker-8: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:20:45,320 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:45,324 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:20:45,330 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:20:45,330 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:21:20,235 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:21:20,239 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:21:20,246 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:21:20,246 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:21:22,759 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:21:22,762 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:21:22,767 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:21:22,769 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:21:46,132 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:21:46,135 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:21:46,141 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:21:46,142 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:22:31,782 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:22:31,785 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:22:31,791 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:22:31,791 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:22:33,349 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:22:33,353 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:22:33,358 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:22:33,359 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:23:02,082 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:02,084 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:23:02,087 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:02,088 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:23:03,355 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:03,359 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:23:03,366 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:03,367 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:23:08,369 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:08,373 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:23:08,379 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:08,379 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:23:20,766 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:20,771 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:23:20,782 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:23:20,783 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:24:32,542 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:24:32,545 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:24:32,550 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:24:32,551 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:26:05,814 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:26:05,818 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:26:05,823 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:26:05,823 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:26:26,274 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:26:26,278 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:26:26,284 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:26:26,284 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:06,818 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:06,823 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:06,827 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:06,828 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:19,470 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:19,474 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:19,478 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:19,479 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:35,402 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:35,404 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:35,407 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:35,408 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:41,863 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:41,868 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:41,873 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:41,874 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:43,031 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:43,034 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:43,041 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:43,042 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:47,557 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:47,560 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:47,566 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:47,566 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:29:52,865 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:52,870 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:29:52,875 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:29:52,876 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:30:15,894 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:30:15,897 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:30:15,900 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:30:15,900 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:30:24,223 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:30:24,227 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:30:24,233 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:30:24,233 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:31:24,183 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:24,186 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:31:24,191 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:24,191 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:31:30,954 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:30,958 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:31:30,962 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:30,962 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:31:38,630 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:38,634 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:31:38,640 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:38,640 [Worker-20: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:31:56,594 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:56,597 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:31:56,603 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:31:56,604 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:32:01,337 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:32:01,341 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:32:01,346 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:32:01,347 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:33:56,070 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:33:56,075 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:33:56,082 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:33:56,082 [Worker-18: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:41:58,779 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:41:58,783 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:41:58,786 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:41:58,786 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:42:28,879 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:42:28,881 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:42:28,884 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:42:28,885 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:42:32,916 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:42:32,920 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:42:32,925 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:42:32,926 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:43:23,186 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:43:23,189 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:43:23,195 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:43:23,196 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:44:31,966 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:44:31,970 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:44:31,974 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:44:31,975 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:44:43,654 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:44:43,657 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:44:43,660 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:44:43,661 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:45:03,998 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:04,000 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:45:04,004 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:04,004 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:45:05,178 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:05,181 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:45:05,184 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:05,185 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:45:06,383 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:06,386 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:45:06,390 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:06,391 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:45:11,724 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:11,728 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:45:11,734 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:11,734 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:45:18,515 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:18,517 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:45:18,521 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:45:18,521 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:47:58,564 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:47:58,566 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:47:58,571 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:47:58,572 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:48:06,140 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:48:06,142 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:48:06,147 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:48:06,147 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:48:11,814 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:48:11,819 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:48:11,824 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:48:11,825 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:48:45,693 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:48:45,696 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:48:45,701 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:48:45,701 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:50:22,353 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:22,358 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:50:22,362 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:22,363 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:50:31,422 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:31,425 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:50:31,428 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:31,428 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:50:48,366 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:48,369 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:50:48,372 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:48,373 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:50:51,237 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:51,240 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:50:51,244 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:51,245 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:50:53,415 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:53,417 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:50:53,421 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:50:53,421 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:51:37,984 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:51:37,986 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:51:37,991 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:51:37,991 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:51:57,858 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:51:57,863 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:51:57,869 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:51:57,870 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:52:00,918 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:00,922 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:52:00,928 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:00,929 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:52:09,868 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:09,871 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:52:09,876 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:09,876 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:52:23,759 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:23,763 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:52:23,768 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:23,769 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:52:25,930 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:25,933 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:52:25,939 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:25,940 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:52:28,227 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:28,230 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:52:28,234 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:28,235 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:52:29,674 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:29,677 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:52:29,680 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:52:29,680 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:54:06,184 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:54:06,188 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:54:06,195 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:54:06,196 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:55:32,729 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:55:32,733 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:55:32,740 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:55:32,741 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:55:42,326 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:55:42,331 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:55:42,336 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:55:42,336 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:56:12,523 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:56:12,531 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:56:12,540 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:56:12,541 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:56:33,054 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:56:33,063 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:56:33,072 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:56:33,073 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:56:41,875 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:56:41,883 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:56:41,889 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:56:41,890 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:57:04,452 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:57:04,459 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:57:04,468 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:57:04,469 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:57:38,600 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:57:38,606 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:57:38,613 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:57:38,615 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:57:58,306 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:57:58,315 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:57:58,325 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:57:58,327 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:58:12,148 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:58:12,157 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:58:12,165 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:58:12,166 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:58:38,365 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:58:38,374 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:58:38,383 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:58:38,386 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:58:53,243 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:58:53,252 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:58:53,260 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:58:53,263 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:59:18,843 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:59:18,850 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:59:18,856 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:59:18,857 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:59:19,944 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:59:19,948 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:59:19,954 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:59:19,955 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 16:59:45,167 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:59:45,176 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 16:59:45,184 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 16:59:45,186 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:00:14,979 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:14,986 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:00:14,996 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:14,997 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:00:21,826 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:21,836 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:00:21,846 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:21,847 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:00:26,180 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:26,188 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:00:26,194 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:26,195 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:00:33,323 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:33,333 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:00:33,339 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:33,342 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:00:51,548 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:51,556 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:00:51,564 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:00:51,566 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:01:32,669 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:32,679 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:01:32,689 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:32,691 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:01:44,212 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:44,221 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:01:44,232 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:44,233 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:01:55,536 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:55,543 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:01:55,550 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:55,552 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:01:58,966 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:58,972 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:01:58,997 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:01:58,998 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:02,294 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:02,302 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:02,309 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:02,311 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:06,119 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:06,125 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:06,131 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:06,132 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:15,550 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:15,559 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:15,568 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:15,570 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:26,817 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:26,827 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:26,835 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:26,836 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:30,733 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:30,739 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:30,747 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:30,748 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:39,001 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:39,008 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:39,014 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:39,015 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:43,253 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:43,271 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:43,279 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:43,280 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:49,485 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:49,494 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:49,505 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:49,507 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:02:55,257 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:55,265 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:02:55,271 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:02:55,273 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:03:09,470 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:09,483 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:03:09,492 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:09,493 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:03:15,571 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:15,579 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:03:15,587 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:15,589 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:03:36,161 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:36,170 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:03:36,177 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:36,178 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:03:46,666 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:46,674 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:03:46,679 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:03:46,680 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:04:12,200 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:04:12,206 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:04:12,212 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:04:12,213 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:04:47,488 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:04:47,496 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:04:47,506 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:04:47,507 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:05:24,062 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:24,073 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:05:24,083 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:24,084 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:05:30,181 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:30,187 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:05:30,195 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:30,197 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:05:32,520 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:32,527 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:05:32,535 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:32,536 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:05:51,457 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:51,462 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:05:51,467 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:05:51,469 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:06:13,450 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:06:13,456 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:06:13,461 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:06:13,462 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:06:41,881 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:06:41,891 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:06:41,899 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:06:41,901 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
+2020-08-21 17:07:40,932 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:07:40,940 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 27 resources
+2020-08-21 17:07:40,949 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-08-21 17:07:40,950 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\LinkinBen\I.T\ATBM-HTTT\Work\CuoiKiLyThuyet\QuanLyBenhVien\quanlybenhvien\src\test\resources
