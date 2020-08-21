@@ -5,15 +5,16 @@ import java.util.List;
 
 public class Role {
 	public static final List<String> ROLE_LIST = assignRole();
-	
-	public static List<String> assignRole(){
+
+	public static List<String> assignRole() {
 		List<String> roleList = new ArrayList<String>();
-		
+
 		roleList.add("DBA");
 		roleList.add("ROLE_BACSI");
 		roleList.add("ROLE_NVBANTHUOC");
 		roleList.add("ROLE_NVKETOAN");
-		
+		roleList.add("ROLE_NVTAIVU");
+
 		return roleList;
 	}
 }

@@ -21,6 +21,7 @@ import com.atbm.quanlybenhvien.entity.Role;
 import com.atbm.quanlybenhvien.entity.User;
 import com.atbm.quanlybenhvien.util.ConnectionControl;
 import com.atbm.quanlybenhvien.views.Accountant.AccountantDashBoard;
+import com.atbm.quanlybenhvien.views.Busary.BusaryDashBoard;
 import com.atbm.quanlybenhvien.views.DBA.DBADashBoard;
 import com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard;
 import com.atbm.quanlybenhvien.views.Seller.SellerDashBoard;
@@ -226,6 +227,10 @@ public class Login extends JFrame {
 					case "ROLE_NVKETOAN":
 						System.out.println("Kế toán.");
 						genericStuff.call_frame(new AccountantDashBoard(currUser));
+						break;
+					case "ROLE_NVTAIVU":
+						System.out.println("Nhân viên tài vụ.");
+						genericStuff.call_frame(new BusaryDashBoard(currUser));
 						break;
 					default:
 						System.out.println("Không phải người trong hệ thống hoặc chưa được cấp quyền truy cập.");
