@@ -1,0 +1,133 @@
+package com.atbm.quanlybenhvien.views.Receptionist;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JComboBox;
+
+public class ReceptionistEditServices extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+
+	private final JPanel contentPanel = new JPanel();
+	private JTextField txtMaKB;
+	private JTextField txtMaDV;
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	private ReceptionistService prevFrame;
+
+	public ReceptionistService getPrevFrame() {
+		return prevFrame;
+	}
+
+	public void setPrevFrame(ReceptionistService prevFrame) {
+		this.prevFrame = prevFrame;
+	}
+
+	public static void main(String[] args) {
+		try {
+			ReceptionistEditServices dialog = new ReceptionistEditServices(new User(),
+					new ReceptionistService(new User()), new String(), new String(), new String());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ReceptionistEditServices(final User user, final ReceptionistService prevFrame, String maKB, String maDV,
+			String moTa) {
+		this.user = user;
+		this.prevFrame = prevFrame;
+
+		setBounds(100, 100, 350, 171);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		JLabel lblMaKB = new JLabel("Mã Khám Bệnh:");
+		lblMaKB.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMaKB.setBounds(10, 11, 114, 14);
+		contentPanel.add(lblMaKB);
+
+		txtMaKB = new JTextField(maKB);
+		txtMaKB.setEditable(false);
+		txtMaKB.setBounds(134, 8, 190, 20);
+		contentPanel.add(txtMaKB);
+		txtMaKB.setColumns(10);
+
+		JLabel lblMaDV = new JLabel("Mã Dịch Vụ:");
+		lblMaDV.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMaDV.setBounds(10, 39, 114, 14);
+		contentPanel.add(lblMaDV);
+
+		txtMaDV = new JTextField(maDV);
+		txtMaDV.setEditable(false);
+		txtMaDV.setColumns(10);
+		txtMaDV.setBounds(134, 39, 190, 20);
+		contentPanel.add(txtMaDV);
+
+		JLabel lblMoTa = new JLabel("Mô Tả:");
+		lblMoTa.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMoTa.setBounds(10, 67, 114, 14);
+		contentPanel.add(lblMoTa);
+
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JComboBox<String> comboBox_MoTa = new JComboBox<String>();
+		comboBox_MoTa.addItem("Chờ Dịch Vụ");
+		comboBox_MoTa.addItem("Chờ Kết Quả");
+		comboBox_MoTa.setBounds(134, 64, 190, 20);
+		contentPanel.add(comboBox_MoTa);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Sửa Điều Phối");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+					}
+				});
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+}

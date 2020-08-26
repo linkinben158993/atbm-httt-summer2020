@@ -1,0 +1,234 @@
+package com.atbm.quanlybenhvien.views.Receptionist;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.util.ConnectionControl;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JSeparator;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+
+public class ReceptionistAddPatients extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private JFrame prevFrame;
+
+	public JFrame getPrevFrame() {
+		return prevFrame;
+	}
+
+	public void setPrevFrame(JFrame prevFrame) {
+		this.prevFrame = prevFrame;
+	}
+
+	private User user;
+	private JTextField txtMaBN;
+	private JTextField txtHoTen;
+	private JTextField txtSDT;
+	private JTextArea txtTrieuChung;
+	private JTextField txtDiaChi;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			ReceptionistAddPatients dialog = new ReceptionistAddPatients(new User(),
+					new ReceptionistPatients(new User()));
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ReceptionistAddPatients(final User user, final ReceptionistPatients prevFrame) {
+		this.user = user;
+		this.prevFrame = prevFrame;
+
+		setBounds(100, 100, 320, 350);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JLabel lblMaBN = new JLabel("Mã Bệnh Nhân:");
+		lblMaBN.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMaBN.setBounds(10, 11, 84, 14);
+		contentPanel.add(lblMaBN);
+
+		txtMaBN = new JTextField();
+		txtMaBN.setBounds(104, 8, 190, 20);
+		contentPanel.add(txtMaBN);
+		txtMaBN.setColumns(10);
+
+		JLabel lblHTn = new JLabel("Họ Tên:");
+		lblHTn.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblHTn.setBounds(10, 39, 84, 14);
+		contentPanel.add(lblHTn);
+
+		txtHoTen = new JTextField();
+		txtHoTen.setColumns(10);
+		txtHoTen.setBounds(104, 36, 190, 20);
+		contentPanel.add(txtHoTen);
+
+		JLabel lblSinThoi = new JLabel("Số Điện Thoại:");
+		lblSinThoi.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblSinThoi.setBounds(10, 128, 84, 14);
+		contentPanel.add(lblSinThoi);
+
+		txtSDT = new JTextField();
+		txtSDT.setColumns(10);
+		txtSDT.setBounds(104, 125, 190, 20);
+		contentPanel.add(txtSDT);
+
+		JLabel lblNmSinh = new JLabel("Năm Sinh:");
+		lblNmSinh.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNmSinh.setBounds(10, 64, 84, 14);
+		contentPanel.add(lblNmSinh);
+
+		final JComboBox<Integer> comboBox_NamSinh = new JComboBox<Integer>();
+		comboBox_NamSinh.setMaximumRowCount(5);
+		LocalDate yearFromNow = LocalDate.now();
+		// Lấy 100 năm về trước tính từ năm này
+		for (int i = yearFromNow.getYear(); i > yearFromNow.getYear() - 100; i--) {
+			comboBox_NamSinh.addItem(i);
+		}
+		comboBox_NamSinh.setBounds(104, 64, 190, 20);
+		contentPanel.add(comboBox_NamSinh);
+
+		JLabel lblTriuChng = new JLabel("Triệu Chứng:");
+		lblTriuChng.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblTriuChng.setBounds(10, 170, 84, 14);
+		contentPanel.add(lblTriuChng);
+
+		JScrollPane scrollPane_TrieuChung = new JScrollPane();
+		scrollPane_TrieuChung.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_TrieuChung.setBounds(104, 167, 190, 100);
+		contentPanel.add(scrollPane_TrieuChung);
+
+		txtTrieuChung = new JTextArea();
+		txtTrieuChung.setWrapStyleWord(true);
+		txtTrieuChung.setLineWrap(true);
+		txtTrieuChung.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+
+		scrollPane_TrieuChung.setViewportView(txtTrieuChung);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 153, 284, 2);
+		contentPanel.add(separator);
+		
+		JLabel lblDiaChi = new JLabel("Địa Chỉ:");
+		lblDiaChi.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblDiaChi.setBounds(10, 98, 84, 14);
+		contentPanel.add(lblDiaChi);
+		
+		txtDiaChi = new JTextField();
+		txtDiaChi.setColumns(10);
+		txtDiaChi.setBounds(104, 95, 190, 20);
+		contentPanel.add(txtDiaChi);
+		contentPanel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtMaBN, txtHoTen, txtSDT, comboBox_NamSinh, txtDiaChi, scrollPane_TrieuChung, txtTrieuChung}));
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Thêm Mới Bệnh");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						// Kiểm tra cho tiện insert mã bệnh nhân theo đúng định dạng
+						if (!txtMaBN.getText().matches("(BN)([0-9]){2,}")) {
+							JOptionPane.showMessageDialog(null, "Vui lòng nhập đúng mã bệnh nhân!");
+							JOptionPane.showMessageDialog(null, "Mẫu BN<Mã Bệnh Nhân: BN01");
+						} else if (patientsExist(txtMaBN.getText())) {
+							JOptionPane.showMessageDialog(null, "Bệnh nhân đã tồn tại!");
+						} else {
+							System.out.println("Thêm mới bệnh nhân!");
+
+							Connection conn = new ConnectionControl().createConnection(user.getUserName(),
+									user.getPassword());
+							PreparedStatement stmt = null;
+							try {
+								stmt = conn.prepareStatement("ISNERT INTO QLBV.BENHNHAN VALUES (?,?,?,?,?,?,?)");
+								stmt.setString(1, txtMaBN.getText());
+								stmt.setString(2, txtHoTen.getText());
+								stmt.setInt(3, Integer.parseInt(comboBox_NamSinh.getSelectedItem().toString()));
+							} catch (SQLException e1) {
+								e1.printStackTrace();
+							}
+						}
+					}
+				});
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+	private boolean patientsExist(String maBN) {
+		try {
+			Connection conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+			// Lấy tất cả các bảng thuộc quyền sở hữu của dba
+			String sql = "SELECT * FROM QLBV.BENHNHAN";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet res = statement.executeQuery();
+			if (res.next() == false) {
+				return false;
+			} else {
+				do {
+					if (res.getString("MABN").toString().equals(maBN)) {
+						return true;
+					}
+				} while (res.next());
+			}
+
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+}

@@ -1,0 +1,205 @@
+package com.atbm.quanlybenhvien.views.Receptionist;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.util.ConnectionControl;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ReceptionistEditPatients extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private ReceptionistPatients prevFrame;
+
+	public ReceptionistPatients getPrevFrame() {
+		return prevFrame;
+	}
+
+	public void setPrevFrame(ReceptionistPatients prevFrame) {
+		this.prevFrame = prevFrame;
+	}
+
+	private JTextField txtMaBN;
+	private JTextField txtHoTen;
+	private JTextField txtSDT;
+	private JTextField txtDiaChi;
+	private JComboBox<Integer> comboBox_NamSinh;
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			ReceptionistEditPatients dialog = new ReceptionistEditPatients(new String(), new User());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ReceptionistEditPatients(final String maBN, final User user) {
+		this.user = user;
+
+		setBounds(100, 100, 350, 250);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JLabel lblMaBN = new JLabel("Mã Bệnh Nhân:");
+		lblMaBN.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMaBN.setBounds(10, 11, 84, 14);
+		contentPanel.add(lblMaBN);
+
+		txtMaBN = new JTextField(maBN);
+		txtMaBN.setEditable(false);
+		txtMaBN.setBounds(104, 8, 190, 20);
+		contentPanel.add(txtMaBN);
+		txtMaBN.setColumns(10);
+
+		fill_Form(maBN);
+
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Thay Đổi Thông Tin");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						try {
+							Connection conn = new ConnectionControl().createConnection(user.getUserName(),
+									user.getPassword());
+
+							PreparedStatement stmt = conn.prepareStatement("UPDATE QLBV.BENHNHAN " + "SET HOTEN = ? "
+									+ "SET NAMSINH = ? " + "SET DIACHI = ? " + "SET DIENTHOAI = ? " + "WHERE MABN = ?");
+						} catch (Exception e2) {
+							e2.printStackTrace();
+							JOptionPane.showMessageDialog(null, "Thay đổi thông tin thất bại!");
+						}
+					}
+				});
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+	private void fill_Form(String maBN) {
+
+		try {
+			Connection conn = new ConnectionControl().createConnection(getUser().getUserName(),
+					getUser().getPassword());
+
+			String sql = "SELECT * FROM QLBV.BENHNHAN WHERE MABN = '" + maBN + "'";
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			ResultSet res = preparedStatement.executeQuery();
+
+			if (res.next() == false) {
+				JOptionPane.showMessageDialog(null, "Chưa có dữ liệu của bệnh nhân!");
+
+			} else {
+				do {
+					JLabel lblHTn = new JLabel("Họ Tên:");
+					lblHTn.setFont(new Font("Times New Roman", Font.BOLD, 12));
+					lblHTn.setBounds(10, 39, 84, 14);
+					contentPanel.add(lblHTn);
+
+					txtHoTen = new JTextField(res.getString("HOTEN"));
+					txtHoTen.setColumns(10);
+					txtHoTen.setBounds(104, 36, 190, 20);
+					contentPanel.add(txtHoTen);
+
+					JLabel lblSinThoi = new JLabel("Số Điện Thoại:");
+					lblSinThoi.setFont(new Font("Times New Roman", Font.BOLD, 12));
+					lblSinThoi.setBounds(10, 128, 84, 14);
+					contentPanel.add(lblSinThoi);
+
+					txtSDT = new JTextField(res.getString("DIENTHOAI"));
+					txtSDT.setColumns(10);
+					txtSDT.setBounds(104, 125, 190, 20);
+					contentPanel.add(txtSDT);
+
+					JLabel lblNmSinh = new JLabel("Năm Sinh:");
+					lblNmSinh.setFont(new Font("Times New Roman", Font.BOLD, 12));
+					lblNmSinh.setBounds(10, 64, 84, 14);
+					contentPanel.add(lblNmSinh);
+
+					comboBox_NamSinh = new JComboBox<Integer>();
+					comboBox_NamSinh.setMaximumRowCount(5);
+					comboBox_NamSinh.setSelectedItem(null);
+					LocalDate yearFromNow = LocalDate.now();
+					// Lấy 100 năm về trước tính từ năm này
+					for (int i = yearFromNow.getYear(); i > yearFromNow.getYear() - 100; i--) {
+						comboBox_NamSinh.addItem(i);
+					}
+					comboBox_NamSinh.setBounds(104, 64, 190, 20);
+					comboBox_NamSinh.setSelectedItem(Integer.parseInt(res.getString("NAMSINH")));
+					contentPanel.add(comboBox_NamSinh);
+
+					JLabel lblDiaChi = new JLabel("Địa Chỉ:");
+					lblDiaChi.setFont(new Font("Times New Roman", Font.BOLD, 12));
+					lblDiaChi.setBounds(10, 98, 84, 14);
+					contentPanel.add(lblDiaChi);
+
+					txtDiaChi = new JTextField(res.getString("DIACHI"));
+					txtDiaChi.setColumns(10);
+					txtDiaChi.setBounds(104, 95, 190, 20);
+					contentPanel.add(txtDiaChi);
+				} while (res.next());
+
+				conn.close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

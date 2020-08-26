@@ -24,6 +24,7 @@ import com.atbm.quanlybenhvien.views.Accountant.AccountantDashBoard;
 import com.atbm.quanlybenhvien.views.Busary.BusaryDashBoard;
 import com.atbm.quanlybenhvien.views.DBA.DBADashBoard;
 import com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard;
+import com.atbm.quanlybenhvien.views.Receptionist.ReceptionistDashBoard;
 import com.atbm.quanlybenhvien.views.Seller.SellerDashBoard;
 
 import java.awt.BorderLayout;
@@ -212,26 +213,37 @@ public class Login extends JFrame {
 					genericStuff.call_frame(login);
 				} else {
 					switch (redirectTo) {
+					// DBA
 					case "DBA":
 						System.out.println("Quản lý csdl.");
 						genericStuff.call_frame(new DBADashBoard(currUser));
 						break;
+					// ROLE_BACSI
 					case "ROLE_BACSI":
 						System.out.println("Bác sĩ.");
 						genericStuff.call_frame(new DoctorDashBoard(currUser));
 						break;
+					// ROLE_NVBANTHUOC
 					case "ROLE_NVBANTHUOC":
 						System.out.println("Bán thuốc.");
 						genericStuff.call_frame(new SellerDashBoard(currUser));
 						break;
+					// ROLE_NVKETOAN
 					case "ROLE_NVKETOAN":
 						System.out.println("Kế toán.");
 						genericStuff.call_frame(new AccountantDashBoard(currUser));
 						break;
+					// ROLE_NVTAIVU
 					case "ROLE_NVTAIVU":
 						System.out.println("Nhân viên tài vụ.");
 						genericStuff.call_frame(new BusaryDashBoard(currUser));
 						break;
+					// ROLE_NVTIEPTANDIEUPHOI
+					case "ROLE_NVTIEPTANDIEUPHOI":
+						System.out.println("Nhân viên tiếp tân.");
+						genericStuff.call_frame(new ReceptionistDashBoard(currUser));
+						break;
+
 					default:
 						System.out.println("Không phải người trong hệ thống hoặc chưa được cấp quyền truy cập.");
 						JOptionPane.showMessageDialog(null,

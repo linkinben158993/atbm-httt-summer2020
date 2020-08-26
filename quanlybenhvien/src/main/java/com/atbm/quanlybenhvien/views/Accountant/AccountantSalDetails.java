@@ -182,6 +182,7 @@ public class AccountantSalDetails extends JDialog {
 	}
 
 	// Hàm tính lương và đưa kết quả lên txtBox
+	// '01-11-20 12:00 A.M.', '30-11-20 11:59 P.M.'
 	private String tinhLuong(String dateStart, String dateEnd, String maNV) {
 		String luong = "";
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");

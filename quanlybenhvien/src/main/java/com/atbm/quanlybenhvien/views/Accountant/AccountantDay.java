@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
@@ -121,14 +123,18 @@ public class AccountantDay extends JFrame {
 	}
 
 	// Hàm vẽ bảng
+	// Lấy từ đầu tháng tới hiện tại.
 	@SuppressWarnings("serial")
 	private void draw_DayTbl() {
 		Date today = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
-		System.out.println(dateFormat.format(today));
 
-		JLabel lblNewLabel = new JLabel(
-				"Bảng Chấm Công Của Nhân Viên Từ " + dateFormat.format(today) + " Tới Hiện Tại");
+		LocalDate beginOfMonth = LocalDate.now();
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yy");
+		
+		JLabel lblNewLabel = new JLabel("Bảng Chấm Công Của Nhân Viên Từ "
+				+ beginOfMonth.withDayOfMonth(1).format(dateTimeFormatter).toString()
+				+ " Tới Hiện Tại: " + dateFormat.format(today));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		lblNewLabel.setBounds(10, 222, 554, 14);
@@ -140,9 +146,9 @@ public class AccountantDay extends JFrame {
 					this.user.getPassword());
 			String sql = "SELECT NV.*, \r\n" + "(SELECT COUNT(*) SONGAYCONG \r\n" + "FROM QLBV.CHAMCONG \r\n"
 					+ "WHERE \r\n" + "MANV = NV.MANV \r\n" + "AND \r\n" + "THOIGIAN BETWEEN TO_DATE('"
-					+ dateFormat.format(today)
-					+ " 12:00 A.M.', 'DD-MM-YY HH:MI A.M.') AND TO_DATE('30-11-20 11:59 P.M.', 'DD-MM-YY HH:MI A.M.')) \r\n"
-					+ "AS NGAYCONG\r\n" + "FROM QLBV.NHANVIEN NV";
+					+ beginOfMonth.withDayOfMonth(1).format(dateTimeFormatter).toString()
+					+ " 12:00 A.M.', 'DD-MM-YY HH:MI A.M.') AND TO_DATE('" + dateFormat.format(today)
+					+ " 11:59 P.M.', 'DD-MM-YY HH:MI A.M.')) \r\n" + "AS NGAYCONG\r\n" + "FROM QLBV.NHANVIEN NV";
 			PreparedStatement preparedStatement = conn.prepareStatement(sql);
 			ResultSet res = preparedStatement.executeQuery();
 			if (res.next() == false) {

@@ -1,0 +1,253 @@
+package com.atbm.quanlybenhvien.views.Receptionist;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.util.ConnectionControl;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ReceptionistAddServices extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+
+	private final JPanel contentPanel = new JPanel();
+	private JComboBox<String> comboBox_KB;
+	private JComboBox<String> comboBox_MoTa;
+	private JComboBox<String> comboBox_DichVu;
+	private JTable tbl_LookUp;
+	private DefaultTableModel tableDichVu;
+
+	public DefaultTableModel getTableDichVu() {
+		return tableDichVu;
+	}
+
+	public void setTableDichVu(DefaultTableModel tableDichVu) {
+		this.tableDichVu = tableDichVu;
+	}
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			ReceptionistAddServices dialog = new ReceptionistAddServices(new User(),
+					new ReceptionistService(new User()));
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ReceptionistAddServices(final User user, final ReceptionistService prevFrame) {
+		this.user = user;
+
+		setBounds(100, 100, 473, 360);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JLabel lblMaKB = new JLabel("Mã Khám Bệnh:");
+		lblMaKB.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMaKB.setBounds(10, 14, 100, 14);
+		contentPanel.add(lblMaKB);
+
+		comboBox_KB = new JComboBox<String>();
+		comboBox_KB.setBounds(120, 11, 150, 20);
+		Connection connkb = null;
+		try {
+			conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM QLBV.KHAMBENH");
+			ResultSet res = stmt.executeQuery();
+			if (res.next() == false) {
+				JOptionPane.showMessageDialog(null, "Chưa có khám bệnh nào!");
+			} else {
+				do {
+					comboBox_DichVu.addItem(res.getString("MAKB"));
+				} while (res.next());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		contentPanel.add(comboBox_KB);
+
+		JLabel lblMaDV = new JLabel("Mã Dịch Vụ:");
+		lblMaDV.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMaDV.setBounds(10, 42, 100, 14);
+		contentPanel.add(lblMaDV);
+
+		comboBox_DichVu = new JComboBox<String>();
+		comboBox_DichVu.setBounds(120, 39, 150, 20);
+		Connection conn = null;
+		try {
+			conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM QLBV.DICHVU");
+			ResultSet res = stmt.executeQuery();
+			if (res.next() == false) {
+				JOptionPane.showMessageDialog(null, "Chưa có dịch vụ nào!");
+			} else {
+				do {
+					comboBox_DichVu.addItem(res.getString("MADV"));
+				} while (res.next());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		comboBox_DichVu.setSelectedItem(null);
+		contentPanel.add(comboBox_DichVu);
+
+		JLabel lblMoTa = new JLabel("Mô Tả:");
+		lblMoTa.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblMoTa.setBounds(10, 70, 100, 14);
+		contentPanel.add(lblMoTa);
+
+		comboBox_MoTa = new JComboBox<String>();
+		comboBox_MoTa.setBounds(120, 67, 150, 20);
+		comboBox_MoTa.addItem("Chờ Dịch Vụ");
+		comboBox_MoTa.addItem("Chờ Kết Quả");
+		comboBox_MoTa.setSelectedItem(null);
+		contentPanel.add(comboBox_MoTa);
+
+		JScrollPane scrollPane_LookUp = new JScrollPane();
+		scrollPane_LookUp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_LookUp.setBounds(10, 107, 435, 150);
+		contentPanel.add(scrollPane_LookUp);
+
+		draw_TableDichVu();
+		tbl_LookUp = new JTable(tableDichVu);
+		tbl_LookUp.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		genericStuff.resizeTable(tbl_LookUp);
+		scrollPane_LookUp.setViewportView(tbl_LookUp);
+
+		JLabel lblLookUp = new JLabel("Bảng Tra Cứu Dịch Vụ");
+		lblLookUp.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLookUp.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblLookUp.setBounds(71, 263, 292, 14);
+		contentPanel.add(lblLookUp);
+
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Điều Phối Dịch Vụ");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Connection conn = null;
+						try {
+							conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+							PreparedStatement stmt = conn
+									.prepareStatement("INSERT INTO QLBV.DIEUPHOIDICHVU VALUES(?, ?, ?)");
+							stmt.setString(1, txtMaKB.getText());
+							stmt.setString(2, comboBox_DichVu.getSelectedItem().toString());
+							stmt.setString(3, comboBox_MoTa.getSelectedItem().toString());
+
+							stmt.executeUpdate();
+							conn.close();
+
+							JOptionPane.showMessageDialog(null, "Điều phối dịch vụ thành công!");
+
+						} catch (Exception e2) {
+							e2.printStackTrace();
+							try {
+								conn.close();
+							} catch (SQLException e1) {
+								e1.printStackTrace();
+							}
+							JOptionPane.showMessageDialog(null, "Điều phối dịch vụ thất bại!");
+						}
+
+						dispose();
+						prevFrame.getTableDieuPhoi().fireTableDataChanged();
+						prevFrame.draw_TableDieuPhoi();
+						prevFrame.getTblDieuPhoi().setModel(prevFrame.getTableDieuPhoi());
+						genericStuff.resizeTable(prevFrame.getTblDieuPhoi());
+						genericStuff.call_revapaint(prevFrame);
+					}
+				});
+				okButton.setActionCommand("Điều Phối Dịch Vụ");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+	@SuppressWarnings("serial")
+	public void draw_TableDichVu() {
+		Connection conn = null;
+		try {
+			conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM QLBV.DICHVU");
+			ResultSet res = stmt.executeQuery();
+
+			if (res.next() == false) {
+				JOptionPane.showMessageDialog(null, "Chưa có điều phối nào được thực hiện!");
+			} else {
+				String[] columns = { "STT", "Mã DV", "Tên DV", "Giá", "Mô Tả", "Bác Sĩ" };
+				tableDichVu = new DefaultTableModel(columns, 0) {
+					@Override
+					public boolean isCellEditable(int row, int column) {
+						return false;
+					}
+				};
+				int i = 1;
+				do {
+					String[] data = { String.valueOf(i++), res.getString("MADV"), res.getString("TEN"),
+							res.getString("GIA"), res.getString("MOTA") != null ? res.getString("MOTA") : "Chưa Có",
+							res.getString("BACSI") };
+					tableDichVu.addRow(data);
+				} while (res.next());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -14,6 +14,7 @@ public class Role {
 		roleList.add("ROLE_NVBANTHUOC");
 		roleList.add("ROLE_NVKETOAN");
 		roleList.add("ROLE_NVTAIVU");
+		roleList.add("ROLE_NVTIEPTANDIEUPHOI");
 
 		return roleList;
 	}

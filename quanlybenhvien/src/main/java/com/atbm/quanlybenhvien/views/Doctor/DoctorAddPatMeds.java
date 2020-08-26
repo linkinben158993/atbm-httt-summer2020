@@ -181,6 +181,9 @@ public class DoctorAddPatMeds extends JDialog {
 											+ "'," + soLuong + ",'" + moTa + "')";
 									Statement stmt = conn.createStatement();
 									stmt.executeUpdate(sql);
+
+									JOptionPane.showMessageDialog(null, "Thêm mới toa thuốc thành công!");
+
 									conn.close();
 
 								} catch (Exception e) {
@@ -188,7 +191,6 @@ public class DoctorAddPatMeds extends JDialog {
 									JOptionPane.showMessageDialog(null, "Thêm mới thất bại!");
 									conn.close();
 								}
-								JOptionPane.showMessageDialog(null, "Thêm mới toa thuốc thành công!");
 
 								dispose();
 								preFrame.getTableToaThuoc().fireTableDataChanged();

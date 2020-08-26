@@ -160,6 +160,7 @@ public class DoctorPatients extends JFrame {
 
 			Connection conn = new ConnectionControl().createConnection(this.user.getUserName(),
 					this.user.getPassword());
+			// VPD đã được áp dụng
 			String sql = "SELECT * FROM QLBV.VIEW_KHAMBENH";
 			PreparedStatement preparedStatement = conn.prepareStatement(sql);
 			ResultSet res = preparedStatement.executeQuery();

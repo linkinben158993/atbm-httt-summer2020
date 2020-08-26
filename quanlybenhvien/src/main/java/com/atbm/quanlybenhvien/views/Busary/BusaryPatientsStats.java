@@ -219,6 +219,7 @@ public class BusaryPatientsStats extends JFrame {
 				}
 				try {
 					stmt.executeBatch();
+					JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thành công!");
 				} catch (Exception e2) {
 					e2.printStackTrace();
 					JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thất bại!");
@@ -229,7 +230,6 @@ public class BusaryPatientsStats extends JFrame {
 					e2.printStackTrace();
 				}
 
-				JOptionPane.showMessageDialog(null, "Cập nhật thông tin khám bệnh thành công!");
 				getTablePatients().fireTableDataChanged();
 				draw_TablePatients();
 				tbl_Patients.setModel(getTablePatients());

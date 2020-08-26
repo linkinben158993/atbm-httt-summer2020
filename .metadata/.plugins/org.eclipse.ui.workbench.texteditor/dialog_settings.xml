@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Back"/>
+		<item key="selection" value="JTable"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="doctor"/>
+			<item value="Thêm mới"/>
+			<item value="Bảng "/>
+			<item value="to_num"/>
 			<item value="back"/>
 			<item value="tẤT"/>
 			<item value="Pats"/>
 			<item value="user"/>
-			<item value="INSERT"/>
-			<item value="create"/>
-			<item value="AddSer"/>
-			<item value="benhnhan"/>
 		</list>
 		<list key="replacehistory">
 		</list>

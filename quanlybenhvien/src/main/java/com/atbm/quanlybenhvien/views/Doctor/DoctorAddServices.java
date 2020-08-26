@@ -181,6 +181,9 @@ public class DoctorAddServices extends JDialog {
 										+ "', '" + moTa + "')";
 								Statement stmt = conn.createStatement();
 								stmt.executeUpdate(sql);
+								
+								JOptionPane.showMessageDialog(null, "Thêm mới dịch vụ thành công!");
+								
 								conn.close();
 
 							} catch (Exception e) {
@@ -192,7 +195,6 @@ public class DoctorAddServices extends JDialog {
 									e1.printStackTrace();
 								}
 							}
-							JOptionPane.showMessageDialog(null, "Thêm mới dịch vụ thành công!");
 
 							dispose();
 							preFrame.getTableDichVu().fireTableDataChanged();
