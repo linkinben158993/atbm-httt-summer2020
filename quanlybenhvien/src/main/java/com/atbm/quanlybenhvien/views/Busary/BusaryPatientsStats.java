@@ -36,8 +36,14 @@ import javax.swing.ScrollPaneConstants;
 public class BusaryPatientsStats extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 
+	private GenericStuff genericStuff = new GenericStuff();
+	private JTable tbl_PatientsService;
+	private JTable tbl_Patients;
+
+	
 	private DefaultTableModel tablePatients;
 
 	public DefaultTableModel getTablePatients() {
@@ -67,11 +73,6 @@ public class BusaryPatientsStats extends JFrame {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	private GenericStuff genericStuff = new GenericStuff();
-	private JTable tbl_PatientsService;
-	private JTable tbl_Patients;
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

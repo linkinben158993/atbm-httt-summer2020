@@ -1,0 +1,319 @@
+package com.atbm.quanlybenhvien.views.MBusary;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.util.ConnectionControl;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.awt.event.ActionEvent;
+
+public class MBusaryEditPatient extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+
+	private final JPanel contentPanel = new JPanel();
+
+	private JTextField txtMaKB;
+	private JTable tbl_TrucPhong;
+
+	private DefaultTableModel tableTrucPhong;
+
+	public DefaultTableModel getTableTrucPhong() {
+		return tableTrucPhong;
+	}
+
+	public void setTableTrucPhong(DefaultTableModel tableTrucPhong) {
+		this.tableTrucPhong = tableTrucPhong;
+	}
+
+	private JComboBox<String> comboBox_Phong;
+	private JComboBox<String> comboBox_BS;
+	private JComboBox<String> comboBox_BN;
+	private JTextArea txtMoTa;
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			MBusaryEditPatient dialog = new MBusaryEditPatient(new User(), new MBusaryPatients(new User()),
+					new String(), new String(), new String(), new String(), new String());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public MBusaryEditPatient(final User user, final MBusaryPatients prevFrame, final String maKB, final String BN,
+			final String BS, final String Phong, final String moTa) {
+
+		this.user = user;
+
+		setBounds(100, 100, 769, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JLabel lblMaKB = new JLabel("Mã Khám Bệnh: ");
+		lblMaKB.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblMaKB.setBounds(10, 11, 83, 14);
+		contentPanel.add(lblMaKB);
+
+		txtMaKB = new JTextField(maKB);
+		txtMaKB.setEditable(false);
+		txtMaKB.setBounds(103, 8, 140, 20);
+		contentPanel.add(txtMaKB);
+		txtMaKB.setColumns(10);
+
+		JLabel lblBenhNhan = new JLabel("Bệnh Nhân:");
+		lblBenhNhan.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblBenhNhan.setBounds(10, 39, 83, 14);
+		contentPanel.add(lblBenhNhan);
+		comboBox_BN = new JComboBox<String>();
+		comboBox_BN.setMaximumRowCount(5);
+		comboBox_BN.setBounds(103, 36, 140, 20);
+		try {
+			Connection conn = null;
+			try {
+				conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM QLBV.BENHNHAN");
+				ResultSet res = stmt.executeQuery();
+				if (res.next() == false) {
+					JOptionPane.showMessageDialog(null, "Chưa có bệnh nhân nào!");
+				} else {
+					do {
+						comboBox_BN.addItem(res.getString("MABN"));
+					} while (res.next());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		comboBox_BN.setSelectedItem(BN);
+		contentPanel.add(comboBox_BN);
+
+		JLabel lblPhong = new JLabel("Phòng: ");
+		lblPhong.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblPhong.setBounds(10, 67, 83, 14);
+		contentPanel.add(lblPhong);
+		comboBox_Phong = new JComboBox<String>();
+		comboBox_Phong.setMaximumRowCount(5);
+		comboBox_Phong.setBounds(103, 64, 140, 20);
+		contentPanel.add(comboBox_Phong);
+		JLabel lblBacSi = new JLabel("Bác Sĩ:");
+		lblBacSi.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblBacSi.setBounds(10, 95, 83, 14);
+		contentPanel.add(lblBacSi);
+		comboBox_BS = new JComboBox<String>();
+		comboBox_BS.setMaximumRowCount(5);
+		comboBox_BS.setBounds(103, 92, 140, 20);
+		contentPanel.add(comboBox_BS);
+
+		try {
+			Connection conn = null;
+			try {
+				conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+				PreparedStatement stmt = conn.prepareStatement(
+						"SELECT NHANVIEN, PHONG FROM QLBV.TRUCPHONG WHERE NHANVIEN LIKE '%BS%' GROUP BY (NHANVIEN,PHONG)");
+				ResultSet res = stmt.executeQuery();
+				if (res.next() == false) {
+					JOptionPane.showMessageDialog(null, "Chưa có phân công nào!");
+				} else {
+					do {
+						comboBox_Phong.addItem(res.getString("PHONG"));
+						comboBox_BS.addItem(res.getString("NHANVIEN"));
+					} while (res.next());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		comboBox_Phong.setSelectedItem(Phong);
+		comboBox_BS.setSelectedItem(BS);
+
+		JLabel lblMoTa = new JLabel("Mô Tả:");
+		lblMoTa.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblMoTa.setBounds(10, 120, 83, 14);
+		contentPanel.add(lblMoTa);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(103, 115, 140, 102);
+		contentPanel.add(scrollPane);
+		txtMoTa = new JTextArea();
+		scrollPane.setViewportView(txtMoTa);
+		txtMoTa.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		txtMoTa.setWrapStyleWord(true);
+		txtMoTa.setLineWrap(true);
+		txtMoTa.setText(moTa);
+
+		JScrollPane scrollPane_TrucPhong = new JScrollPane();
+		scrollPane_TrucPhong.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_TrucPhong.setBounds(253, 11, 500, 181);
+		contentPanel.add(scrollPane_TrucPhong);
+
+		draw_TableTrucPhong();
+		tbl_TrucPhong = new JTable(tableTrucPhong);
+		tbl_TrucPhong.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		genericStuff.resizeTable(tbl_TrucPhong);
+		scrollPane_TrucPhong.setViewportView(tbl_TrucPhong);
+
+		JLabel lblNewLabel = new JLabel("Bảng Trực Phòng Bác Sĩ");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(253, 203, 500, 14);
+		contentPanel.add(lblNewLabel);
+
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Chỉnh Sửa Thông Tin");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if (unchanged_Info(BN, Phong, BS, moTa)) {
+							JOptionPane.showMessageDialog(null,
+									"Không thông tin nào được thay đổi. Trờ lại trang trước!");
+							dispose();
+						} else {
+							Connection conn = null;
+							try {
+								conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+								PreparedStatement stmt = conn.prepareStatement("UPDATE FROM QLBV.KHAMBENH "
+										+ "SET  BENHNHAN = ?, PHONG = ?, BACSI = ?, MOTA = ?" + " WHERE MAKB = ?");
+								stmt.setString(1, maKB);
+								stmt.executeUpdate();
+								conn.close();
+								JOptionPane.showMessageDialog(null, "Sửa khám bệnh thành công!");
+
+							} catch (Exception e2) {
+								e2.printStackTrace();
+								try {
+									conn.close();
+								} catch (SQLException e1) {
+									e1.printStackTrace();
+								}
+								JOptionPane.showMessageDialog(null, "Sửa khám bệnh thất bại!");
+							}
+						}
+						prevFrame.getTablePatients().fireTableDataChanged();
+						prevFrame.draw_TableKhamBenh();
+						prevFrame.getTbl_Patients().setModel(prevFrame.getTablePatients());
+						genericStuff.resizeTable(prevFrame.getTbl_Patients());
+						genericStuff.call_revapaint(prevFrame.getTbl_Patients());
+					}
+				});
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.addActionListener(new ActionListener() {
+
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+
+				});
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+	private boolean unchanged_Info(String BN, String Phong, String BS, String moTa) {
+		if (BN.equals(comboBox_BN.getSelectedItem().toString())
+				&& Phong.equals(comboBox_Phong.getSelectedItem().toString())
+				&& BS.equals(comboBox_BS.getSelectedItem().toString()) && txtMoTa.getText().equals(moTa)) {
+			return true;
+		}
+		return false;
+	}
+
+	@SuppressWarnings("serial")
+	private void draw_TableTrucPhong() {
+		try {
+
+			Connection conn = new ConnectionControl().createConnection(this.user.getUserName(),
+					this.user.getPassword());
+			String sql = "SELECT * FROM QLBV.TRUCPHONG WHERE NHANVIEN LIKE '%BS%' ORDER BY PHONG";
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+			ResultSet res = preparedStatement.executeQuery();
+			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+			if (res.next() == false) {
+				JOptionPane.showMessageDialog(null, "Chưa có dữ liệu trong trực phòng!");
+
+			} else {
+				String[] columns = { "STT", "Bác Sĩ", "Phòng", "Từ Ngày", "Đến Ngày" };
+				tableTrucPhong = new DefaultTableModel(columns, 0) {
+					@Override
+					public boolean isCellEditable(int row, int column) {
+						return false;
+					}
+				};
+				int i = 1;
+				do {
+					Timestamp ts_Tu = Timestamp.valueOf(res.getString("TU"));
+					LocalDateTime lcdt_Tu = ts_Tu.toLocalDateTime();
+
+					Timestamp ts_Den = Timestamp.valueOf(res.getString("DEN"));
+					LocalDateTime lcdt_Den = ts_Den.toLocalDateTime();
+
+					String[] data = { String.valueOf(i++), res.getString("NHANVIEN"), res.getString("PHONG"),
+							dateTimeFormatter.format(lcdt_Tu).toString(),
+							dateTimeFormatter.format(lcdt_Den).toString() };
+					tableTrucPhong.addRow(data);
+				} while (res.next());
+
+				conn.close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

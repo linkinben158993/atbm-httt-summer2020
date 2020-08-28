@@ -24,6 +24,7 @@ import com.atbm.quanlybenhvien.views.Accountant.AccountantDashBoard;
 import com.atbm.quanlybenhvien.views.Busary.BusaryDashBoard;
 import com.atbm.quanlybenhvien.views.DBA.DBADashBoard;
 import com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard;
+import com.atbm.quanlybenhvien.views.MBusary.MBusaryDashBoard;
 import com.atbm.quanlybenhvien.views.Receptionist.ReceptionistDashBoard;
 import com.atbm.quanlybenhvien.views.Seller.SellerDashBoard;
 
@@ -242,6 +243,19 @@ public class Login extends JFrame {
 					case "ROLE_NVTIEPTANDIEUPHOI":
 						System.out.println("Nhân viên tiếp tân.");
 						genericStuff.call_frame(new ReceptionistDashBoard(currUser));
+						break;
+					// ROLE_QLTAINGUYENNHANSU
+					case "ROLE_QLTAINGUYENNHANSU":
+						System.out.println("Nhân viên quản lý tài nguyên nhân sự.");
+						break;
+					// ROLE_QLTAIVU
+					case "ROLE_QLTAIVU":
+						System.out.println("Nhân viên quản lý tài vụ.");
+						genericStuff.call_frame(new MBusaryDashBoard(currUser));
+						break;
+					// ROLE_QLCHUYEMON
+					case "ROLE_QLCHUYEMON":
+						System.out.println("Nhóm quản lý chuyên môn.");
 						break;
 
 					default:

@@ -181,11 +181,10 @@ public class ReceptionistAddPatients extends JDialog {
 							JOptionPane.showMessageDialog(null, "Vui lòng không được bỏ trống trường nào!");
 						} else if (!txtMaBN.getText().matches("(BN)([0-9]){2,}")) {
 							JOptionPane.showMessageDialog(null, "Vui lòng nhập đúng mã bệnh nhân!");
-							JOptionPane.showMessageDialog(null, "Mẫu BN<Mã Bệnh Nhân: BN01");
+							JOptionPane.showMessageDialog(null, "Mẫu BN<Mã Bệnh Nhân>: BN01");
 						} else if (patientsExist(txtMaBN.getText())) {
 							JOptionPane.showMessageDialog(null, "Bệnh nhân đã tồn tại!");
 						} else {
-							System.out.println("Thêm mới bệnh nhân!");
 
 							Connection conn = new ConnectionControl().createConnection(user.getUserName(),
 									user.getPassword());

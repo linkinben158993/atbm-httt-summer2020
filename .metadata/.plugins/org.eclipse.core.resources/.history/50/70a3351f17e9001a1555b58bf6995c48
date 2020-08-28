@@ -1,0 +1,185 @@
+package com.atbm.quanlybenhvien.views.MBusary;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class MBusaryEditMed extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private JTable tbl_Meds;
+
+	private DefaultTableModel tableMeds;
+
+	public DefaultTableModel getTableMeds() {
+		return tableMeds;
+	}
+
+	public void setTableMeds(DefaultTableModel tableMeds) {
+		this.tableMeds = tableMeds;
+	}
+
+	private JComboBox<String> comboBox_MaKB;
+	private JComboBox<String> comboBox_MaT;
+	private JComboBox<String> comboBox_SoLuong;
+	private JTextArea txtMoTa;
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			MBusaryEditMed dialog = new MBusaryEditMed(new User(), new MBusaryMeds(new User()), new String(),
+					new String());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public MBusaryEditMed(final User user, final MBusaryMeds prevFrame, final String moTa, final String soLuong) {
+		this.user = user;
+
+		setBounds(100, 100, 750, 320);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JLabel lblMaKB = new JLabel("Mã Khám Bệnh: ");
+		lblMaKB.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblMaKB.setBounds(10, 11, 83, 14);
+		contentPanel.add(lblMaKB);
+		{
+			comboBox_MaKB = new JComboBox<String>();
+			comboBox_MaKB.setMaximumRowCount(5);
+			comboBox_MaKB.setBounds(103, 8, 140, 20);
+			contentPanel.add(comboBox_MaKB);
+		}
+		{
+			JLabel lblMaT = new JLabel("Mã Thuốc: ");
+			lblMaT.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+			lblMaT.setBounds(10, 39, 83, 14);
+			contentPanel.add(lblMaT);
+		}
+		{
+			comboBox_MaT = new JComboBox<String>();
+			comboBox_MaT.setMaximumRowCount(5);
+			comboBox_MaT.setBounds(103, 36, 140, 20);
+			contentPanel.add(comboBox_MaT);
+		}
+		{
+			JLabel lblSoLuong = new JLabel("Số Lượng:");
+			lblSoLuong.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+			lblSoLuong.setBounds(10, 67, 83, 14);
+			contentPanel.add(lblSoLuong);
+		}
+		{
+			comboBox_SoLuong = new JComboBox<String>();
+			comboBox_SoLuong.setMaximumRowCount(5);
+			comboBox_SoLuong.setBounds(103, 64, 140, 20);
+			for (int i = 1; i < 11; i++) {
+				comboBox_SoLuong.addItem(String.valueOf(i));
+			}
+			comboBox_SoLuong.setSelectedItem(null);
+			contentPanel.add(comboBox_SoLuong);
+		}
+		{
+			JLabel lblMoTa = new JLabel("Mô Tả:");
+			lblMoTa.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+			lblMoTa.setBounds(10, 92, 83, 14);
+			contentPanel.add(lblMoTa);
+		}
+		{
+			JScrollPane scrollPane_MoTa = new JScrollPane();
+			scrollPane_MoTa.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			scrollPane_MoTa.setBounds(103, 87, 140, 130);
+			contentPanel.add(scrollPane_MoTa);
+			{
+				txtMoTa = new JTextArea();
+				txtMoTa.setWrapStyleWord(true);
+				txtMoTa.setLineWrap(true);
+				scrollPane_MoTa.setViewportView(txtMoTa);
+			}
+		}
+		{
+			JScrollPane scrollPane_ToaThuoc = new JScrollPane();
+			scrollPane_ToaThuoc.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			scrollPane_ToaThuoc.setBounds(253, 11, 471, 206);
+			contentPanel.add(scrollPane_ToaThuoc);
+			{
+				draw_Component();
+				comboBox_MaKB.setSelectedItem(null);
+				comboBox_MaT.setSelectedItem(null);
+				tbl_Meds = new JTable(tableMeds);
+				genericStuff.resizeTable(tbl_Meds);
+				scrollPane_ToaThuoc.setViewportView(tbl_Meds);
+			}
+		}
+		{
+			JLabel lblNewLabel = new JLabel("Bảng Tra Cứu Thông Tin Thuốc");
+			lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setBounds(253, 223, 471, 14);
+			contentPanel.add(lblNewLabel);
+		}
+
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Chỉnh Sửa Toa Thuốc");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+					}
+				});
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+}

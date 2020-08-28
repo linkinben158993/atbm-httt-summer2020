@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.atbm.quanlybenhvien.views.MBusary.MBusary&apos; to &apos;MBusaryPatients&apos;&#x0D;&#x0A;- Original project: &apos;quanlybenhvien&apos;&#x0D;&#x0A;- Original element: &apos;com.atbm.quanlybenhvien.views.MBusary.MBusary&apos;&#x0D;&#x0A;- Renamed element: &apos;com.atbm.quanlybenhvien.views.MBusary.MBusaryPatients&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MBusary&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.atbm.quanlybenhvien.views.MBusary{MBusary.java[MBusary" matchStrategy="1" name="MBusaryPatients" qualified="false" references="true" similarDeclarations="false" stamp="1598590061404" textual="false" version="1.0"/>
+</session>
