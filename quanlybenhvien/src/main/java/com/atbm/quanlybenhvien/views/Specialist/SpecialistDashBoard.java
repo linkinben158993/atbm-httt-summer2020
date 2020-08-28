@@ -95,6 +95,64 @@ public class SpecialistDashBoard extends JFrame {
 		lblChoMngNhn.setBounds(175, 47, 280, 40);
 		panel_1.add(lblChoMngNhn);
 
+		JPanel panelPatsStats = new JPanel();
+		panelPatsStats.setLayout(null);
+		panelPatsStats.setBackground(Color.LIGHT_GRAY);
+		panelPatsStats.setBounds(10, 191, 100, 116);
+		panel.add(panelPatsStats);
+		JLabel lblPatsStats = new JLabel("<html><center>Khám Bệnh<br>Bệnh Nhân</center></html>", SwingConstants.CENTER);
+		lblPatsStats.setForeground(Color.BLACK);
+		lblPatsStats.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblPatsStats.setBounds(0, 86, 100, 30);
+		panelPatsStats.add(lblPatsStats);
+		JLabel lblIconPatsStats = new JLabel("");
+		lblIconPatsStats.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon imageIcon_PatsStats = new ImageIcon(SpecialistDashBoard.class.getResource("/images/Patients.png"));
+		Image image_PatsStats = imageIcon_PatsStats.getImage();
+		Image newImage_PatsStats = image_PatsStats.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconPatsStats.setIcon(new ImageIcon(newImage_PatsStats));
+		lblIconPatsStats.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				SpecialistPatients specialistPatients = new SpecialistPatients(user);
+				genericStuff.call_frame(specialistPatients);
+			}
+		});
+		genericStuff.hover(lblIconPatsStats, lblPatsStats, panelPatsStats, new Color(230, 230, 250), Color.DARK_GRAY,
+				Color.BLACK, Color.LIGHT_GRAY);
+		lblIconPatsStats.setBounds(10, 0, 80, 75);
+		panelPatsStats.add(lblIconPatsStats);
+
+		JPanel panelServ = new JPanel();
+		panelServ.setLayout(null);
+		panelServ.setBackground(Color.LIGHT_GRAY);
+		panelServ.setBounds(120, 191, 100, 116);
+		panel.add(panelServ);
+		JLabel lblServ = new JLabel("<html>Khám Bệnh<br>Dịch Vụ</html>", SwingConstants.CENTER);
+		lblServ.setForeground(Color.BLACK);
+		lblServ.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblServ.setBounds(0, 86, 100, 30);
+		panelServ.add(lblServ);
+		JLabel lblIconServ = new JLabel("");
+		lblIconServ.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon imageIcon_Serv = new ImageIcon(Login.class.getResource("/images/Service.png"));
+		Image image_Serv = imageIcon_Serv.getImage();
+		Image newImage_Serv = image_Serv.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconServ.setIcon(new ImageIcon(newImage_Serv));
+		lblIconServ.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				SpecialistService specialistService = new SpecialistService(user);
+				genericStuff.call_frame(specialistService);
+			}
+		});
+		genericStuff.hover(lblIconServ, lblServ, panelServ, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,
+				Color.LIGHT_GRAY);
+		lblIconServ.setBounds(10, 0, 80, 75);
+		panelServ.add(lblIconServ);
+
 		JPanel panelBack = new JPanel();
 		panelBack.setLayout(null);
 		panelBack.setBackground(Color.LIGHT_GRAY);

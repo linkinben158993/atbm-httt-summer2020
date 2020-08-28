@@ -249,7 +249,7 @@ public class MBusaryEditPatient extends JDialog {
 						genericStuff.call_revapaint(prevFrame.getTbl_Patients());
 					}
 				});
-				okButton.setActionCommand("OK");
+				okButton.setActionCommand("Thay Đổi Thông Tin");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
@@ -271,7 +271,7 @@ public class MBusaryEditPatient extends JDialog {
 	private boolean unchanged_Info(String BN, String Phong, String BS, String moTa) {
 		if (BN.equals(comboBox_BN.getSelectedItem().toString())
 				&& Phong.equals(comboBox_Phong.getSelectedItem().toString())
-				&& BS.equals(comboBox_BS.getSelectedItem().toString()) && txtMoTa.getText().equals(moTa)) {
+				&& BS.equals(comboBox_BS.getSelectedItem().toString()) && moTa.equals(txtMoTa.getText())) {
 			return true;
 		}
 		return false;

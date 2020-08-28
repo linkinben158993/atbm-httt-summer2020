@@ -1,0 +1,77 @@
+package com.atbm.quanlybenhvien.views.Specialist;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+
+public class SpecialistService extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private SpecialistService currFrame;
+
+	public SpecialistService getCurrFrame() {
+		return currFrame;
+	}
+
+	public void setCurrFrame(SpecialistService currFrame) {
+		this.currFrame = currFrame;
+	}
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SpecialistService frame = new SpecialistService(new User());
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public SpecialistService(final User user) {
+		this.user = user;
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 502);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		this.currFrame = (SpecialistService) SwingUtilities.getWindowAncestor(contentPane);
+
+		JScrollPane scrollPane_Patients = new JScrollPane();
+		scrollPane_Patients.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_Patients.setBounds(10, 11, 764, 334);
+		contentPane.add(scrollPane_Patients);
+		draw_TableKhamBenh();
+		tbl_Patients = new JTable(tablePatients);
+		tbl_Patients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		genericStuff.resizeTable(tbl_Patients);
+		scrollPane_Patients.setViewportView(tbl_Patients);
+	}
+
+}

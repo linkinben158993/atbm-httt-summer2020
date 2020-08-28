@@ -27,6 +27,7 @@ import com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard;
 import com.atbm.quanlybenhvien.views.MBusary.MBusaryDashBoard;
 import com.atbm.quanlybenhvien.views.Receptionist.ReceptionistDashBoard;
 import com.atbm.quanlybenhvien.views.Seller.SellerDashBoard;
+import com.atbm.quanlybenhvien.views.Specialist.SpecialistDashBoard;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -254,8 +255,9 @@ public class Login extends JFrame {
 						genericStuff.call_frame(new MBusaryDashBoard(currUser));
 						break;
 					// ROLE_QLCHUYEMON
-					case "ROLE_QLCHUYEMON":
+					case "ROLE_QLCHUYENMON":
 						System.out.println("Nhóm quản lý chuyên môn.");
+						genericStuff.call_frame(new SpecialistDashBoard(currUser));
 						break;
 
 					default:

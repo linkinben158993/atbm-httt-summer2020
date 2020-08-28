@@ -1,0 +1,106 @@
+package com.atbm.quanlybenhvien.views.Specialist;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
+public class SpecialistAddServices extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+
+	private final JPanel contentPanel = new JPanel();
+
+	private User user;
+	private JTable tbl_DichVu;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			SpecialistAddServices dialog = new SpecialistAddServices(new User(), new SpecialistService(new User()));
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public SpecialistAddServices(final User user, final SpecialistService prevFrame) {
+		this.user = user;
+
+		setBounds(100, 100, 600, 200);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblMaKB = new JLabel("Mã Khám Bệnh:");
+			lblMaKB.setBounds(10, 11, 74, 14);
+			contentPanel.add(lblMaKB);
+		}
+		{
+			JComboBox comboBox_MaKB = new JComboBox();
+			comboBox_MaKB.setBounds(94, 8, 100, 20);
+			contentPanel.add(comboBox_MaKB);
+		}
+		{
+			JLabel lblMaDV = new JLabel("Mã Dịch Vụ:");
+			lblMaDV.setBounds(10, 39, 74, 14);
+			contentPanel.add(lblMaDV);
+		}
+		{
+			JComboBox comboBox_MaDV = new JComboBox();
+			comboBox_MaDV.setBounds(94, 36, 100, 20);
+			contentPanel.add(comboBox_MaDV);
+		}
+		{
+			JLabel lblMoTa = new JLabel("Mã Khám Bệnh:");
+			lblMoTa.setBounds(10, 67, 74, 14);
+			contentPanel.add(lblMoTa);
+		}
+		{
+			JComboBox comboBox_MoTa = new JComboBox();
+			comboBox_MoTa.setBounds(94, 64, 100, 20);
+			contentPanel.add(comboBox_MoTa);
+		}
+		
+		tbl_DichVu = new JTable();
+		tbl_DichVu.setBounds(204, 11, 370, 81);
+		contentPanel.add(tbl_DichVu);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(204, 103, 370, 14);
+		contentPanel.add(lblNewLabel);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Thêm Mới Điều Phối");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+}
