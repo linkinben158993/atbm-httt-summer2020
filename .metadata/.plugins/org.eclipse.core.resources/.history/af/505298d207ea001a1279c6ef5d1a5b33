@@ -1,0 +1,89 @@
+package com.atbm.quanlybenhvien.views.DBA;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class DBAAuditSQLDetails extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private User user;
+	private JTextField textField;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			DBAAuditSQLDetails dialog = new DBAAuditSQLDetails(new User(), new String(), new String()));
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public DBAAuditSQLDetails(final User user, final String ssId, String dbuName) {
+		this.user = user;
+		
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(10, 66, 414, 151);
+		contentPanel.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		
+		JLabel lblSSID = new JLabel("ID Truy Vấn:");
+		lblSSID.setBounds(10, 5, 61, 25);
+		contentPanel.add(lblSSID);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 41, 86, 20);
+		contentPanel.add(textField);
+		textField.setColumns(10);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+}

@@ -235,7 +235,9 @@ public class DBADashBoard extends JFrame {
 		lblIconAudit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("Thực hiện ghi nhật kí");
+				dispose();
+				DBAAuditing dbaAuditing = new DBAAuditing(user);
+				genericStuff.call_frame(dbaAuditing);
 			}
 		});
 		genericStuff.hover(lblIconAudit, lblAudit, panelAudit, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,

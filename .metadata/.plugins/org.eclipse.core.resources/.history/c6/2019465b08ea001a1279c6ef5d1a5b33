@@ -1,0 +1,116 @@
+package com.atbm.quanlybenhvien.views.DBA;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Font;
+
+public class DBAAuditSQLDetails extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private User user;
+	private JTextField txtID;
+	private JTextField txtUserName;
+	private JTextField txtSchema;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			DBAAuditSQLDetails dialog = new DBAAuditSQLDetails(new User(), new String(), new String(), new String());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public DBAAuditSQLDetails(final User user, final String ssId, String dbuName, String schema) {
+		this.user = user;
+
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(10, 66, 414, 151);
+		contentPanel.add(scrollPane);
+
+		JTextArea txtSQL = new JTextArea();
+		scrollPane.setViewportView(txtSQL);
+
+		JLabel lblSSID = new JLabel("ID Truy Vấn:");
+		lblSSID.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSSID.setBounds(10, 5, 105, 25);
+		contentPanel.add(lblSSID);
+
+		txtID = new JTextField(ssId);
+		txtID.setEditable(false);
+		txtID.setBounds(10, 41, 105, 20);
+		contentPanel.add(txtID);
+		txtID.setColumns(10);
+
+		JLabel lblUserName = new JLabel("Người Thực Hiện:");
+		lblUserName.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblUserName.setBounds(125, 5, 130, 25);
+		contentPanel.add(lblUserName);
+
+		txtUserName = new JTextField(dbuName);
+		txtUserName.setEditable(false);
+		txtUserName.setColumns(10);
+		txtUserName.setBounds(125, 41, 130, 20);
+		contentPanel.add(txtUserName);
+
+		JLabel lblSchema = new JLabel("Người Thực Hiện:");
+		lblSchema.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSchema.setBounds(265, 5, 130, 25);
+		contentPanel.add(lblSchema);
+
+		txtSchema = new JTextField(schema);
+		txtSchema.setEditable(false);
+		txtSchema.setColumns(10);
+		txtSchema.setBounds(265, 41, 130, 20);
+		contentPanel.add(txtSchema);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+}

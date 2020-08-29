@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.time.LocalDate"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistDashBoard"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistAddPatients"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistEditPatients"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistPatients"/>
@@ -32,7 +26,6 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MBusary.MBusaryDashBoard"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Specialist.SpecialistDashBoard"/>
 <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
-<fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHRAddAssigment"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
@@ -43,10 +36,7 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHRAddDay"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHREmployee"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHRAddEmps"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.GenericStuff"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.entity.User"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicBorders.RadioButtonBorder"/>
 <fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
@@ -54,10 +44,20 @@
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.CommonSalary"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBADashBoard"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBAAuditing"/>
+<fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
+<fullyQualifiedTypeName name="java.util.concurrent.locks.StampedLock"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBAAuditSQLDetails"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.ConnectionControl"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.CommonSalary"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.entity.User"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.GenericStuff"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.MAuditPolicy"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.MAddAuditPol"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>
