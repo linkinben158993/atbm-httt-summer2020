@@ -1,0 +1,156 @@
+package com.atbm.quanlybenhvien.views.MHumanResources;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.views.GenericStuff;
+import com.atbm.quanlybenhvien.views.MBusary.MBusaryDashBoard;
+import com.atbm.quanlybenhvien.views.MBusary.MBusaryPatients;
+
+public class MHRDashBoard extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	private GenericStuff genericStuff = new GenericStuff();
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MHRDashBoard frame = new MHRDashBoard(new User());
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public MHRDashBoard(final User user) {
+		this.user = user;
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 750, 400);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBounds(0, 0, 750, 400);
+		contentPane.add(panel);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBackground(Color.GRAY);
+		panel_1.setBounds(0, 0, 750, 180);
+		panel.add(panel_1);
+
+		JPanel panelDash = new JPanel();
+		panelDash.setBounds(10, 11, 100, 100);
+		panel_1.add(panelDash);
+		panelDash.setLayout(null);
+		JLabel lblIconDash = new JLabel("");
+		lblIconDash.setOpaque(true);
+		lblIconDash.setBackground(Color.GRAY);
+		lblIconDash.setBounds(0, 0, 100, 100);
+		ImageIcon imageIcon_Medicines = new ImageIcon(MBusaryDashBoard.class.getResource("/images/Manager.png"));
+		Image image_Medicines = imageIcon_Medicines.getImage();
+		Image newImage_Medicines = image_Medicines.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+		lblIconDash.setIcon(new ImageIcon(newImage_Medicines));
+		panelDash.add(lblIconDash);
+
+		JLabel lblMnHnhChnh = new JLabel("Màn Hình Chính Quản Lý Nhân Sự");
+		lblMnHnhChnh.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMnHnhChnh.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblMnHnhChnh.setBounds(120, 11, 280, 40);
+		panel_1.add(lblMnHnhChnh);
+		JLabel lblChoMngNhn = new JLabel("Chào Mừng Nhân Viên: " + user.getUserName());
+		lblChoMngNhn.setHorizontalAlignment(SwingConstants.CENTER);
+		lblChoMngNhn.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblChoMngNhn.setBounds(175, 47, 280, 40);
+		panel_1.add(lblChoMngNhn);
+
+		JPanel panelEmpStats = new JPanel();
+		panelEmpStats.setLayout(null);
+		panelEmpStats.setBackground(Color.LIGHT_GRAY);
+		panelEmpStats.setBounds(10, 191, 100, 116);
+		panel.add(panelEmpStats);
+		JLabel lblEmpStats = new JLabel("<html><center>Phân Công<br>Trực Phòng</center></html>", SwingConstants.CENTER);
+		lblEmpStats.setForeground(Color.BLACK);
+		lblEmpStats.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblEmpStats.setBounds(0, 86, 100, 30);
+		panelEmpStats.add(lblEmpStats);
+		JLabel lblIconEmpStats = new JLabel("");
+		lblIconEmpStats.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon imageIcon_EmpStats = new ImageIcon(MBusaryDashBoard.class.getResource("/images/Schedule.png"));
+		Image image_EmpStats = imageIcon_EmpStats.getImage();
+		Image newImage_EmpStats = image_EmpStats.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconEmpStats.setIcon(new ImageIcon(newImage_EmpStats));
+		lblIconEmpStats.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				
+			}
+		});
+		genericStuff.hover(lblIconEmpStats, lblEmpStats, panelEmpStats, new Color(230, 230, 250), Color.DARK_GRAY,
+				Color.BLACK, Color.LIGHT_GRAY);
+		lblIconEmpStats.setBounds(10, 0, 80, 75);
+		panelEmpStats.add(lblIconEmpStats);
+
+		JPanel panelEmpCRUD = new JPanel();
+		panelEmpCRUD.setLayout(null);
+		panelEmpCRUD.setBackground(Color.LIGHT_GRAY);
+		panelEmpCRUD.setBounds(120, 191, 100, 116);
+		panel.add(panelEmpCRUD);
+		JLabel lblEmpCRUD = new JLabel("<html><center>Quản Lý<br>Nhân Viên</center></html>", SwingConstants.CENTER);
+		lblEmpCRUD.setForeground(Color.BLACK);
+		lblEmpCRUD.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblEmpCRUD.setBounds(0, 86, 100, 30);
+		panelEmpCRUD.add(lblEmpCRUD);
+		JLabel lblIconEmpCRUD = new JLabel("");
+		lblIconEmpCRUD.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon imageIcon_CRUD = new ImageIcon(MBusaryDashBoard.class.getResource("/images/Profile.png"));
+		Image image_EmpCRUD = imageIcon_CRUD.getImage();
+		Image newImage_CRUD = image_EmpCRUD.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconEmpCRUD.setIcon(new ImageIcon(newImage_CRUD));
+		lblIconEmpCRUD.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				MBusaryPatients mBusaryPatients = new MBusaryPatients(user);
+				genericStuff.call_frame(mBusaryPatients);
+			}
+		});
+		genericStuff.hover(lblIconEmpCRUD, lblEmpCRUD, panelEmpCRUD, new Color(230, 230, 250), Color.DARK_GRAY,
+				Color.BLACK, Color.LIGHT_GRAY);
+		lblIconEmpCRUD.setBounds(10, 0, 80, 75);
+		panelEmpCRUD.add(lblIconEmpCRUD);
+	}
+
+}

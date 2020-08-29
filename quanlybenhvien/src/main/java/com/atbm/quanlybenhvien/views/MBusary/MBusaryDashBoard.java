@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import com.atbm.quanlybenhvien.entity.User;
 import com.atbm.quanlybenhvien.views.GenericStuff;
 import com.atbm.quanlybenhvien.views.Login;
+import com.atbm.quanlybenhvien.views.Specialist.SpecialistService;
 
 public class MBusaryDashBoard extends JFrame {
 
@@ -50,6 +51,7 @@ public class MBusaryDashBoard extends JFrame {
 
 	public MBusaryDashBoard(final User user) {
 		this.user = user;
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 400);
 		contentPane = new JPanel();
@@ -150,6 +152,35 @@ public class MBusaryDashBoard extends JFrame {
 				Color.LIGHT_GRAY);
 		lblIconMeds.setBounds(10, 0, 80, 75);
 		panelMeds.add(lblIconMeds);
+
+		JPanel panelServ = new JPanel();
+		panelServ.setLayout(null);
+		panelServ.setBackground(Color.LIGHT_GRAY);
+		panelServ.setBounds(230, 191, 100, 116);
+		panel.add(panelServ);
+		JLabel lblServ = new JLabel("<html>Điều Phối<br>Dịch Vụ</html>", SwingConstants.CENTER);
+		lblServ.setForeground(Color.BLACK);
+		lblServ.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblServ.setBounds(0, 86, 100, 30);
+		panelServ.add(lblServ);
+		JLabel lblIconServ = new JLabel("");
+		lblIconServ.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon imageIcon_Serv = new ImageIcon(MBusaryDashBoard.class.getResource("/images/Service.png"));
+		Image image_Serv = imageIcon_Serv.getImage();
+		Image newImage_Serv = image_Serv.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconServ.setIcon(new ImageIcon(newImage_Serv));
+		lblIconServ.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+				SpecialistService specialistService = new SpecialistService(user);
+				genericStuff.call_frame(specialistService);
+			}
+		});
+		genericStuff.hover(lblIconServ, lblServ, panelServ, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,
+				Color.LIGHT_GRAY);
+		lblIconServ.setBounds(10, 0, 80, 75);
+		panelServ.add(lblIconServ);
 
 		JPanel panelBack = new JPanel();
 		panelBack.setLayout(null);

@@ -136,7 +136,7 @@ public class SpecialistDashBoard extends JFrame {
 		panelServ.add(lblServ);
 		JLabel lblIconServ = new JLabel("");
 		lblIconServ.setHorizontalAlignment(SwingConstants.CENTER);
-		ImageIcon imageIcon_Serv = new ImageIcon(Login.class.getResource("/images/Service.png"));
+		ImageIcon imageIcon_Serv = new ImageIcon(SpecialistDashBoard.class.getResource("/images/Service.png"));
 		Image image_Serv = imageIcon_Serv.getImage();
 		Image newImage_Serv = image_Serv.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
 		lblIconServ.setIcon(new ImageIcon(newImage_Serv));

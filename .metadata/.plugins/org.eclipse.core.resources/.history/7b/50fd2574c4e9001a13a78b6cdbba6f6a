@@ -1,0 +1,126 @@
+package com.atbm.quanlybenhvien.views.MHumanResources;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import com.atbm.quanlybenhvien.entity.User;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+
+public class MHRAddEmps extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private User user;
+	private JTextField txtMaNV;
+	private JTextField txtHoTen;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			MHRAddEmps dialog = new MHRAddEmps(new User(), new MHREmployee(new User()));
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public MHRAddEmps(final User user, final MHREmployee prevFrame) {
+		this.user = user;
+
+		setBounds(100, 100, 450, 330);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblMaNV = new JLabel("Mã Nhân Viên:");
+			lblMaNV.setBounds(10, 11, 69, 14);
+			contentPanel.add(lblMaNV);
+		}
+		{
+			txtMaNV = new JTextField();
+			txtMaNV.setBounds(89, 8, 140, 20);
+			contentPanel.add(txtMaNV);
+			txtMaNV.setColumns(10);
+		}
+		{
+			JLabel lblHoTen = new JLabel("Họ Tên:");
+			lblHoTen.setBounds(10, 39, 69, 14);
+			contentPanel.add(lblHoTen);
+		}
+		{
+			txtHoTen = new JTextField();
+			txtHoTen.setColumns(10);
+			txtHoTen.setBounds(89, 36, 140, 20);
+			contentPanel.add(txtHoTen);
+		}
+		{
+			JLabel lblPhong = new JLabel("Phòng:");
+			lblPhong.setBounds(10, 67, 69, 14);
+			contentPanel.add(lblPhong);
+		}
+		{
+			JComboBox comboBox_Phong = new JComboBox();
+			comboBox_Phong.setBounds(89, 67, 140, 20);
+			contentPanel.add(comboBox_Phong);
+		}
+		{
+			JLabel lblChcV = new JLabel("Chức Vụ:");
+			lblChcV.setBounds(10, 95, 69, 14);
+			contentPanel.add(lblChcV);
+		}
+		{
+			JComboBox<String> comboBox_ChucVu = new JComboBox<String>();
+			comboBox_ChucVu.setBounds(89, 92, 140, 20);
+			comboBox_ChucVu.addItem("Bac si");
+			comboBox_ChucVu.addItem("Nhan vien tiep tan dieu phoi");
+			comboBox_ChucVu.addItem("Nhan vien tai vu");
+			comboBox_ChucVu.addItem("Nhan vien bo phan ban thuoc");
+			comboBox_ChucVu.addItem("Nhan vien ke toan");
+			comboBox_ChucVu.addItem("Quan ly tai nguyen va nhan vu");
+			comboBox_ChucVu.addItem("Quan ly tai vu");
+			comboBox_ChucVu.addItem("Nhan vien bo phan ban thuoc");
+			contentPanel.add(comboBox_ChucVu);
+		}
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("Thêm Mới Nhân Viên");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+					}
+				});
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Hủy");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+}
