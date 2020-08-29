@@ -37,22 +37,20 @@ import javax.swing.JSeparator;
 
 public class DBAAddPrivileges extends JDialog {
 
-	private ValidateInBackGround validateInBackGround;
+	private ValidateInBackGround validateInBackGround = new ValidateInBackGround();;
 
 	private static final long serialVersionUID = 1L;
-	private static JPanel contentPanel = new JPanel();
+	private final JPanel contentPanel = new JPanel();
 	private User user;
 	private static GenericStuff genericStuff = new GenericStuff();
 
-	private static JRadioButton rdbtnSelect;
-	private static JRadioButton rdbtnInsert;
-	private static JRadioButton rdbtnUpdate;
-	private static JRadioButton rdbtnDelete;
-	private static ButtonGroup buttonGroup = new ButtonGroup();
+	private JRadioButton rdbtnSelect;
+	private JRadioButton rdbtnInsert;
+	private JRadioButton rdbtnUpdate;
+	private JRadioButton rdbtnDelete;
+	private ButtonGroup buttonGroup = new ButtonGroup();
 
-	private static DefaultComboBoxModel<String> options = new DefaultComboBoxModel<String>(
-			new String[] { "Bảng", "Cột" });
-	private static JComboBox<String> comboBox_Options;
+	private JComboBox<String> comboBox_Options;
 
 	private static JLabel lblColumn = new JLabel("Cột:");
 	private DefaultComboBoxModel<String> columns_Model;
@@ -115,7 +113,8 @@ public class DBAAddPrivileges extends JDialog {
 				comboBox_Roles.addItem(item);
 			}
 		}
-		comboBox_Roles.setBounds(132, 11, 130, 30);
+		comboBox_Roles.setSelectedItem(null);
+		comboBox_Roles.setBounds(132, 11, 162, 30);
 		contentPanel.add(comboBox_Roles);
 
 		JLabel lblPrivs = new JLabel("Cho Phép:");
@@ -130,9 +129,8 @@ public class DBAAddPrivileges extends JDialog {
 		rdbtnInsert = new JRadioButton("INSERT");
 		rdbtnInsert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				validateInBackGround = new ValidateInBackGround();
-				validateInBackGround.setDaemon(true);
-				validateInBackGround.start();
+				validateInBackGround.checkCondition(rdbtnInsert, rdbtnDelete, comboBox_Options, comboBox_Column,
+						lblColumn, contentPanel);
 			}
 		});
 		rdbtnInsert.setBounds(214, 52, 80, 30);
@@ -145,9 +143,8 @@ public class DBAAddPrivileges extends JDialog {
 		rdbtnDelete = new JRadioButton("DELETE");
 		rdbtnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				validateInBackGround = new ValidateInBackGround();
-				validateInBackGround.setDaemon(true);
-				validateInBackGround.start();
+				validateInBackGround.checkCondition(rdbtnInsert, rdbtnDelete, comboBox_Options, comboBox_Column,
+						lblColumn, contentPanel);
 			}
 		});
 		rdbtnDelete.setBounds(378, 52, 80, 30);
@@ -163,16 +160,17 @@ public class DBAAddPrivileges extends JDialog {
 		lblDoiTuong.setBounds(10, 134, 110, 30);
 		contentPanel.add(lblDoiTuong);
 
-		comboBox_Options = new JComboBox<String>(options);
+		comboBox_Options = new JComboBox<String>();
+		comboBox_Options.addItem("Bảng");
+		comboBox_Options.addItem("Cột");
 		comboBox_Options.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				validateInBackGround = new ValidateInBackGround();
-				validateInBackGround.setDaemon(true);
-				validateInBackGround.start();
+				validateInBackGround.checkCondition(rdbtnInsert, rdbtnDelete, comboBox_Options, comboBox_Column,
+						lblColumn, contentPanel);
 			}
 		});
 		comboBox_Options.setSelectedItem(null);
-		comboBox_Options.setBounds(132, 134, 130, 30);
+		comboBox_Options.setBounds(132, 134, 162, 30);
 		contentPanel.add(comboBox_Options);
 
 		JLabel lblBang = new JLabel("Bảng:");
@@ -198,14 +196,14 @@ public class DBAAddPrivileges extends JDialog {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		final JComboBox<String> comboBox_Table = new JComboBox<String>(tables_Model);
 		comboBox_Table.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (options.getSelectedItem() != null) {
-					validateInBackGround = new ValidateInBackGround();
-					validateInBackGround.setDaemon(true);
-					validateInBackGround.start();
-					if (!options.getSelectedItem().toString().equals("Bảng")) {
+				if (comboBox_Options.getSelectedItem() != null) {
+					validateInBackGround.checkCondition(rdbtnInsert, rdbtnDelete, comboBox_Options, comboBox_Column,
+							lblColumn, contentPanel);
+					if (!comboBox_Options.getSelectedItem().toString().equals("Bảng")) {
 						if (columns_Model != null) {
 							columns_Model.removeAllElements();
 							for (String item : getListForCombobox("USER_TAB_COLUMNS",
@@ -225,19 +223,20 @@ public class DBAAddPrivileges extends JDialog {
 						lblColumn.setBounds(10, 216, 110, 30);
 						comboBox_Column.setModel(columns_Model);
 						comboBox_Column.setVisible(true);
-						comboBox_Column.setBounds(132, 216, 130, 30);
+						comboBox_Column.setBounds(132, 216, 162, 30);
 						contentPanel.add(lblColumn);
 						contentPanel.add(comboBox_Column);
 
 						// Mỗi lần chọn bảng mới thì render lại component của bảng.
 						genericStuff.call_revapaint(contentPanel);
 					} else {
-						remove_DynamicComboBox();
+						ValidateInBackGround.remove_DynamicComboBox(contentPanel);
 					}
 				}
 			}
 		});
-		comboBox_Table.setBounds(132, 175, 130, 30);
+		comboBox_Table.setBounds(132, 175, 162, 30);
+		comboBox_Table.setSelectedItem(null);
 		contentPanel.add(comboBox_Table);
 
 		JSeparator separator = new JSeparator();
@@ -305,7 +304,7 @@ public class DBAAddPrivileges extends JDialog {
 
 									prevFrame.getUserTable().fireTableDataChanged();
 									prevFrame.drawRole_Table();
-									prevFrame.getTblRole().setModel(prevFrame.getUserRoleTable());
+									prevFrame.getTblRole().setModel(prevFrame.getUserTable());
 
 									genericStuff.resizeTable(prevFrame.getTblRole());
 
@@ -458,29 +457,10 @@ public class DBAAddPrivileges extends JDialog {
 		return resString;
 	}
 
-	// Nếu chọn phân quyền trên bảng thì xóa hết option của phân quyền trên cột cho
-	// an toàn
-	private static void remove_DynamicComboBox() {
-		if (comboBox_Column != null || lblColumn != null) {
-			System.out.println("Xóa mục cột!");
-			lblColumn.setVisible(false);
-			comboBox_Column.setVisible(false);
-			comboBox_Column.removeAllItems();
-			genericStuff.call_revapaint(contentPanel.getRootPane());
-			if (comboBox_Column.isVisible()) {
-				System.out.println("Chưa xóa được thành phần!");
-			} else {
-				System.out.println("Xóa được thành phần!");
-			}
-		} else {
-			System.out.println("Không có gì để xóa!");
-		}
-	}
+	private static class ValidateInBackGround {
+		public void checkCondition(JRadioButton rdbtnInsert, JRadioButton rdbtnDelete, JComboBox<String> options,
+				JComboBox<String> comboBox_Column, JLabel lblColumn, JPanel contentPanel) {
 
-	private static class ValidateInBackGround extends Thread {
-		@Override
-		public void run() {
-			System.out.println("Thread được chạy!");
 			if (rdbtnInsert != null || rdbtnDelete != null) {
 				if (rdbtnInsert.isSelected() || rdbtnDelete.isSelected()) {
 					if (options != null) {
@@ -495,19 +475,37 @@ public class DBAAddPrivileges extends JDialog {
 								rdbtnInsert.setSelected(false);
 								rdbtnDelete.setSelected(false);
 							} else {
-								remove_DynamicComboBox();
+								remove_DynamicComboBox(contentPanel);
 							}
 						}
 					}
 				} else {
 					System.out.println("Thỏa");
-					System.out.println(options.getSelectedItem().toString());
 				}
 			}
 			if (options.getSelectedItem() != null) {
 				if (options.getSelectedItem().toString().equals("Bảng")) {
-					remove_DynamicComboBox();
+					remove_DynamicComboBox(contentPanel);
 				}
+			}
+		}
+
+		// Nếu chọn phân quyền trên bảng thì xóa hết option của phân quyền trên cột cho
+		// an toàn
+		private static void remove_DynamicComboBox(JPanel contentPanel) {
+			if (comboBox_Column != null || lblColumn != null) {
+				System.out.println("Xóa mục cột!");
+				lblColumn.setVisible(false);
+				comboBox_Column.setVisible(false);
+				comboBox_Column.removeAllItems();
+				genericStuff.call_revapaint(contentPanel.getRootPane());
+				if (comboBox_Column.isVisible()) {
+					System.out.println("Chưa xóa được thành phần!");
+				} else {
+					System.out.println("Xóa được thành phần!");
+				}
+			} else {
+				System.out.println("Không có gì để xóa!");
 			}
 		}
 	}

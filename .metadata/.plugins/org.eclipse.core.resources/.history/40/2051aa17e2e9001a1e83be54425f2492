@@ -1,0 +1,103 @@
+package com.atbm.quanlybenhvien.views;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import org.jdatepicker.impl.UtilDateModel;
+
+import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.util.ConnectionControl;
+
+public class CommonSalary extends JDialog {
+
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+
+	private UtilDateModel datePickerModel_Start;
+
+	public UtilDateModel getDatePickerModel_Start() {
+		return datePickerModel_Start;
+	}
+
+	public void setDatePickerModel_Start(UtilDateModel datePickerModel_Start) {
+		this.datePickerModel_Start = datePickerModel_Start;
+	}
+
+	private UtilDateModel datePickerModel_End;
+
+	public UtilDateModel getDatePickerModel_End() {
+		return datePickerModel_End;
+	}
+
+	public void setDatePickerModel_End(UtilDateModel datePickerModel_End) {
+		this.datePickerModel_End = datePickerModel_End;
+	}
+
+	private User user;
+	private JTextField txtLuongCoBan;
+	private JTextField txtMaNV;
+	private static JTextField txtLuong;
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public static void main(String[] args) {
+		try {
+			CommonSalary dialog = new CommonSalary(new User());
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public CommonSalary(final User user) {
+		this.user = user;
+
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setLayout(new FlowLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+
+	private void mySalary() {
+		try {
+			Connection conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+			PreparedStatement stmt = conn.prepareStatement("");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

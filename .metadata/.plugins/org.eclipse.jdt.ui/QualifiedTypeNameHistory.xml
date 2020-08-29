@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorPatDetails"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryPatientsStats"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryServiceStats"/>
-<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicTreeUI.SelectionModelPropertyChangeHandler"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.DateFormatter"/>
-<fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Busary.BusaryDashBoard"/>
-<fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -24,7 +15,6 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistEditServices"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MBusary.MBusaryAddPatients"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MBusary.MBusaryPatients"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.Types"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MBusary.MBusaryEditPatient"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
@@ -42,9 +32,6 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MBusary.MBusaryDashBoard"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Specialist.SpecialistDashBoard"/>
 <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.ConnectionControl"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHRAddAssigment"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
@@ -55,9 +42,22 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHREditDay"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHRAddDay"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.entity.User"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHREmployee"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MHumanResources.MHRAddEmps"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.GenericStuff"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.entity.User"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicBorders.RadioButtonBorder"/>
+<fullyQualifiedTypeName name="javax.swing.JRadioButton"/>
+<fullyQualifiedTypeName name="javax.swing.DefaultComboBoxModel"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.ConnectionControl"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.CommonSalary"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard"/>
 </qualifiedTypeNameHistroy>

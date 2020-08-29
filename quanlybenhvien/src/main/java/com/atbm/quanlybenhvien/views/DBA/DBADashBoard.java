@@ -128,7 +128,7 @@ public class DBADashBoard extends JFrame {
 		JPanel panelCRUD = new JPanel();
 		panelCRUD.setLayout(null);
 		panelCRUD.setBackground(Color.LIGHT_GRAY);
-		panelCRUD.setBounds(133, 190, 100, 116);
+		panelCRUD.setBounds(120, 191, 100, 116);
 		panel.add(panelCRUD);
 		JLabel lblCRUD = new JLabel("<html>Tạo/Xóa Quyền</html>", SwingConstants.CENTER);
 		lblCRUD.setForeground(Color.BLACK);
@@ -173,7 +173,7 @@ public class DBADashBoard extends JFrame {
 		JPanel panelCRUDUser = new JPanel();
 		panelCRUDUser.setLayout(null);
 		panelCRUDUser.setBackground(Color.LIGHT_GRAY);
-		panelCRUDUser.setBounds(259, 190, 100, 116);
+		panelCRUDUser.setBounds(230, 191, 100, 116);
 		panel.add(panelCRUDUser);
 		JLabel lblCRUDUser = new JLabel("<html>Tạo/Xóa User</html>", SwingConstants.CENTER);
 		lblCRUDUser.setForeground(Color.BLACK);
@@ -214,6 +214,33 @@ public class DBADashBoard extends JFrame {
 				Color.BLACK, Color.LIGHT_GRAY);
 		lblIconCRUDUser.setBounds(10, 0, 80, 75);
 		panelCRUDUser.add(lblIconCRUDUser);
+
+		JPanel panelAudit = new JPanel();
+		panelAudit.setLayout(null);
+		panelAudit.setBackground(Color.LIGHT_GRAY);
+		panelAudit.setBounds(340, 191, 100, 115);
+		panel.add(panelAudit);
+		JLabel lblAudit = new JLabel("<html><center>Ghi<br>Nhật Kí</center></html>", SwingConstants.CENTER);
+		lblAudit.setForeground(Color.BLACK);
+		lblAudit.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblAudit.setBounds(0, 87, 100, 28);
+		JLabel lblIconAudit = new JLabel();
+		lblIconAudit.setBounds(20, 11, 90, 80);
+		panelAudit.add(lblIconAudit);
+		ImageIcon imageIcon_Audit = new ImageIcon(SellerDashBoard.class.getResource("/images/Settings.png"));
+		Image image_Audit = imageIcon_Audit.getImage();
+		Image newImage_Audit = image_Audit.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconAudit.setIcon(new ImageIcon(newImage_Audit));
+		lblIconAudit.setBounds(10, 11, 80, 80);
+		lblIconAudit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("Thực hiện ghi nhật kí");
+			}
+		});
+		genericStuff.hover(lblIconAudit, lblAudit, panelAudit, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,
+				Color.LIGHT_GRAY);
+		panelAudit.add(lblAudit);
 
 		JPanel panelBack = new JPanel();
 		panelBack.setLayout(null);

@@ -38,6 +38,7 @@ public class AccountantSalDetails extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
 	private UtilDateModel datePickerModel_Start;
 
 	public UtilDateModel getDatePickerModel_Start() {

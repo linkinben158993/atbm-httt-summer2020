@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.atbm.quanlybenhvien.entity.User;
+import com.atbm.quanlybenhvien.views.CommonSalary;
 import com.atbm.quanlybenhvien.views.GenericStuff;
 import com.atbm.quanlybenhvien.views.Login;
 
@@ -122,6 +123,34 @@ public class DoctorDashBoard extends JFrame {
 				Color.BLACK, Color.LIGHT_GRAY);
 		lblIconPatients.setBounds(10, 0, 80, 75);
 		panelPatients.add(lblIconPatients);
+
+		JPanel panelSal = new JPanel();
+		panelSal.setLayout(null);
+		panelSal.setBackground(Color.LIGHT_GRAY);
+		panelSal.setBounds(120, 191, 100, 116);
+		panel.add(panelSal);
+		JLabel lblSal = new JLabel("<html><center>Thống Kê Lương</center></html>", SwingConstants.CENTER);
+		lblSal.setForeground(Color.BLACK);
+		lblSal.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblSal.setBounds(0, 86, 100, 30);
+		panelSal.add(lblSal);
+		JLabel lblIconSal = new JLabel("");
+		lblIconSal.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon imageIcon_Sal = new ImageIcon(DoctorDashBoard.class.getResource("/images/Money.png"));
+		Image image_Sal = imageIcon_Sal.getImage();
+		Image newImage_Sal = image_Sal.getScaledInstance(70, 70, java.awt.Image.SCALE_SMOOTH);
+		lblIconSal.setIcon(new ImageIcon(newImage_Sal));
+		lblIconSal.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				CommonSalary commonSalary = new CommonSalary(user);
+				genericStuff.call_dialog(commonSalary);
+			}
+		});
+		genericStuff.hover(lblIconSal, lblIconSal, panelSal, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,
+				Color.LIGHT_GRAY);
+		lblIconSal.setBounds(10, 0, 80, 75);
+		panelSal.add(lblIconSal);
 
 		JPanel panelBack = new JPanel();
 		panelBack.setLayout(null);
