@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistEditPatients"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistPatients"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistAddServices"/>
 <fullyQualifiedTypeName name="javax.swing.JSeparator"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Receptionist.ReceptionistService"/>
@@ -47,17 +44,20 @@
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.CommonSalary"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBADashBoard"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBAAuditing"/>
 <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
 <fullyQualifiedTypeName name="java.util.concurrent.locks.StampedLock"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBAAuditSQLDetails"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.util.ConnectionControl"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.entity.User"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.GenericStuff"/>
-<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.MAuditPolicy"/>
 <fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.MAddAuditPol"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.DBAAuditing"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.DBA.MAuditPolicy"/>
+<fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
+<fullyQualifiedTypeName name="com.atbm.quanlybenhvien.views.MBusary.MBusaryService"/>
 </qualifiedTypeNameHistroy>

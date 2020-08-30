@@ -19,7 +19,6 @@ import com.atbm.quanlybenhvien.views.CommonSalary;
 import com.atbm.quanlybenhvien.views.GenericStuff;
 import com.atbm.quanlybenhvien.views.Login;
 import com.atbm.quanlybenhvien.views.Doctor.DoctorDashBoard;
-import com.atbm.quanlybenhvien.views.Specialist.SpecialistService;
 
 public class MBusaryDashBoard extends JFrame {
 
@@ -175,8 +174,8 @@ public class MBusaryDashBoard extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				dispose();
-				SpecialistService specialistService = new SpecialistService(user);
-				genericStuff.call_frame(specialistService);
+				MBusaryService mBusaryService = new MBusaryService(user);
+				genericStuff.call_frame(mBusaryService);
 			}
 		});
 		genericStuff.hover(lblIconServ, lblServ, panelServ, new Color(230, 230, 250), Color.DARK_GRAY, Color.BLACK,

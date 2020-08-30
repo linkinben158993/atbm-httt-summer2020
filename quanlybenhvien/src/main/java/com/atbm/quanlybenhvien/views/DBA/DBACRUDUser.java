@@ -109,7 +109,7 @@ public class DBACRUDUser extends JDialog {
 
 							conn.close();
 
-							JOptionPane.showMessageDialog(null, "Tạo mới quyền " + uName_Final + " thành công!");
+							JOptionPane.showMessageDialog(null, "Tạo mới người dùng " + uName_Final + " thành công!");
 							JOptionPane.showMessageDialog(null,
 									"Mật khẩu mặc định " + uName_Final + ": " + default_password);
 						} catch (Exception e) {

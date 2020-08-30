@@ -41,9 +41,15 @@ public class DBAAuditing extends JFrame {
 
 	private GenericStuff genericStuff = new GenericStuff();
 
-	private User user;
-
 	private JTable tbl_AuditPol;
+
+	public JTable getTbl_AuditPol() {
+		return tbl_AuditPol;
+	}
+
+	public void setTbl_AuditPol(JTable tbl_AuditPol) {
+		this.tbl_AuditPol = tbl_AuditPol;
+	}
 
 	private DefaultTableModel tableAudit;
 
@@ -57,6 +63,8 @@ public class DBAAuditing extends JFrame {
 
 	private JComboBox<String> comboBox_Tables;
 	private JComboBox<String> comboBox_User;
+
+	private User user;
 
 	public User getUser() {
 		return user;
@@ -203,7 +211,7 @@ public class DBAAuditing extends JFrame {
 			Connection conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
 			PreparedStatement stmt = conn
 					.prepareStatement("SELECT * FROM DBA_TABLES WHERE OWNER = ? ORDER BY TABLE_NAME");
-			stmt.setString(1, user.getUserName());
+			stmt.setString(1, "QLBV");
 			ResultSet res = stmt.executeQuery();
 			if (res.next() == false) {
 				JOptionPane.showMessageDialog(null, "Chưa có bảng nào trong CSDL!");
@@ -365,7 +373,7 @@ public class DBAAuditing extends JFrame {
 			String sql = "SELECT SESSIONID, DBUSERNAME, ACTION_NAME, SQL_TEXT, OBJECT_SCHEMA, OBJECT_NAME, EVENT_TIMESTAMP\r\n"
 					+ "FROM UNIFIED_AUDIT_TRAIL\r\n" + "WHERE OBJECT_SCHEMA = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, user.getUserName());
+			statement.setString(1, "QLBV");
 			ResultSet res = statement.executeQuery();
 			if (res.next() == false) {
 				JOptionPane.showMessageDialog(null, "Người dùng này hay bảng này chưa được audit!");

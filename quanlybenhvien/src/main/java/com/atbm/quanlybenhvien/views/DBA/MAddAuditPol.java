@@ -26,6 +26,8 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 
 public class MAddAuditPol extends JDialog {
@@ -62,7 +64,7 @@ public class MAddAuditPol extends JDialog {
 
 	public static void main(String[] args) {
 		try {
-			MAddAuditPol dialog = new MAddAuditPol(new User());
+			MAddAuditPol dialog = new MAddAuditPol(new User(), new MAuditPolicy(new User()));
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -70,10 +72,10 @@ public class MAddAuditPol extends JDialog {
 		}
 	}
 
-	public MAddAuditPol(final User user) {
+	public MAddAuditPol(final User user, final MAuditPolicy prevFrame) {
 		this.user = user;
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 350);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -85,7 +87,7 @@ public class MAddAuditPol extends JDialog {
 			Connection conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
 			PreparedStatement stmt = conn
 					.prepareStatement("SELECT * FROM DBA_TABLES WHERE OWNER = ? ORDER BY TABLE_NAME");
-			stmt.setString(1, user.getUserName());
+			stmt.setString(1, "QLBV");
 			ResultSet res = stmt.executeQuery();
 			if (res.next() == false) {
 				JOptionPane.showMessageDialog(null, "Chưa có bảng nào trong CSDL!");
@@ -125,7 +127,7 @@ public class MAddAuditPol extends JDialog {
 		{
 			JScrollPane scrollPane_AuditPols = new JScrollPane();
 			scrollPane_AuditPols.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPane_AuditPols.setBounds(10, 77, 414, 140);
+			scrollPane_AuditPols.setBounds(10, 111, 464, 156);
 			contentPanel.add(scrollPane_AuditPols);
 			{
 				draw_TableAuditPols();
@@ -154,13 +156,14 @@ public class MAddAuditPol extends JDialog {
 							statements.addBatch("CREATE AUDIT POLICY " + audit_pol_name + " ACTIONS " + action
 									+ " ON QLBV." + table);
 							statements.addBatch("AUDIT POLICY " + audit_pol_name);
+							System.out.println("AUDIT POLICY " + audit_pol_name);
 
 							statements.executeBatch();
 
 							conn.close();
 
 							JOptionPane.showMessageDialog(null,
-									"Thêm chính sách thành công! Mặc định chính sách sẽ được mở!");
+									"Thêm chính sách thành công! Mặc định chính sách sẽ được kích hoạt!");
 						} catch (Exception e2) {
 							e2.printStackTrace();
 							JOptionPane.showMessageDialog(null, "Thêm chính sách thất bại!");
@@ -173,13 +176,92 @@ public class MAddAuditPol extends JDialog {
 
 						getTableAudit().fireTableDataChanged();
 						draw_TableAuditPols();
-						tblAuditPols.setModel(getTableAudit());
+						tblAuditPols.setModel(tableAudit);
 						genericStuff.resizeTable(tblAuditPols);
+						genericStuff.call_revapaint(tblAuditPols);
 					}
 				}
 			});
-			btnAdd.setBounds(318, 44, 106, 23);
+			btnAdd.setBounds(339, 17, 135, 23);
 			contentPanel.add(btnAdd);
+		}
+
+		JButton btnActivate = new JButton("Kích Hoạt");
+		btnActivate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (tblAuditPols.getSelectedRow() == -1) {
+					JOptionPane.showMessageDialog(null, "Vui lòng chọn chính sách để kích hoạt!");
+				} else {
+					Connection conn = null;
+					try {
+						conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+						PreparedStatement stmt = conn.prepareStatement(
+								"AUDIT POLICY " + tblAuditPols.getValueAt(tblAuditPols.getSelectedRow(), 1).toString());
+						stmt.executeUpdate();
+
+						conn.close();
+
+						JOptionPane.showMessageDialog(null, "Kích hoạt chính sách thành công!");
+					} catch (Exception e2) {
+						e2.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Kích hoạt chính sách thất bại!");
+						try {
+							conn.close();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
+
+						prevFrame.getTableAudit().fireTableDataChanged();
+						prevFrame.draw_TableAuditPols();
+						prevFrame.getTblAuditPol().setModel(prevFrame.getTableAudit());
+						genericStuff.resizeTable(prevFrame.getTblAuditPol());
+						genericStuff.call_revapaint(prevFrame.getTblAuditPol());
+
+					}
+				}
+
+			}
+		});
+		btnActivate.setBounds(339, 51, 135, 23);
+		contentPanel.add(btnActivate);
+		{
+			JButton btnXaChnhSch = new JButton("Xóa Chính Sách");
+			btnXaChnhSch.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (tblAuditPols.getSelectedRow() == -1) {
+						JOptionPane.showMessageDialog(null, "Vui lòng chọn chính sách để kích hoạt!");
+					} else {
+						Connection conn = null;
+						try {
+							conn = new ConnectionControl().createConnection(user.getUserName(), user.getPassword());
+							PreparedStatement stmt = conn.prepareStatement("DROP AUDIT POLICY "
+									+ tblAuditPols.getValueAt(tblAuditPols.getSelectedRow(), 1).toString());
+							stmt.executeUpdate();
+
+							conn.close();
+
+							JOptionPane.showMessageDialog(null, "Xóa chính sách thành công!");
+						} catch (Exception e2) {
+							e2.printStackTrace();
+							JOptionPane.showMessageDialog(null, "Xóa chính sách thất bại! Thử ngưng chính sách trước!");
+							try {
+								conn.close();
+							} catch (SQLException e1) {
+								e1.printStackTrace();
+							}
+						}
+
+						getTableAudit().fireTableDataChanged();
+						draw_TableAuditPols();
+						tblAuditPols.setModel(getTableAudit());
+						genericStuff.resizeTable(tblAuditPols);
+						genericStuff.call_revapaint(tblAuditPols);
+					}
+				}
+			});
+			btnXaChnhSch.setBounds(339, 81, 135, 23);
+			contentPanel.add(btnXaChnhSch);
 		}
 
 		{
@@ -191,6 +273,11 @@ public class MAddAuditPol extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
+						prevFrame.getTableAudit().fireTableDataChanged();
+						prevFrame.draw_TableAuditPols();
+						prevFrame.getTblAuditPol().setModel(prevFrame.getTableAudit());
+						genericStuff.resizeTable(prevFrame.getTblAuditPol());
+						genericStuff.call_revapaint(prevFrame);
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -198,6 +285,52 @@ public class MAddAuditPol extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 		}
+
+		addWindowListener(new WindowListener() {
+
+			@Override
+			public void windowOpened(WindowEvent e) {
+
+			}
+
+			@Override
+			public void windowIconified(WindowEvent e) {
+
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+
+			}
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				prevFrame.getTableAudit().fireTableDataChanged();
+				prevFrame.draw_TableAuditPols();
+				prevFrame.getTblAuditPol().setModel(prevFrame.getTableAudit());
+				genericStuff.resizeTable(prevFrame.getTblAuditPol());
+				genericStuff.call_revapaint(prevFrame);
+			}
+
+			@Override
+			public void windowClosed(WindowEvent e) {
+				prevFrame.getTableAudit().fireTableDataChanged();
+				prevFrame.draw_TableAuditPols();
+				prevFrame.getTblAuditPol().setModel(prevFrame.getTableAudit());
+				genericStuff.resizeTable(prevFrame.getTblAuditPol());
+				genericStuff.call_revapaint(prevFrame);
+			}
+
+			@Override
+			public void windowActivated(WindowEvent e) {
+
+			}
+		});
 	}
 
 	@SuppressWarnings("serial")
@@ -210,6 +343,13 @@ public class MAddAuditPol extends JDialog {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet res = statement.executeQuery();
 			if (res.next() == false) {
+				String[] columns = { "STT", "Tên Chính Sách", "Giám Sát", "Hoạt Động", "Đối Tượng" };
+				tableAudit = new DefaultTableModel(columns, 0) {
+					@Override
+					public boolean isCellEditable(int row, int column) {
+						return false;
+					}
+				};
 				JOptionPane.showMessageDialog(null, "Người dùng này hay bảng này chưa được audit!");
 			} else {
 				String[] columns = { "STT", "Tên Chính Sách", "Giám Sát", "Hoạt Động", "Đối Tượng" };
